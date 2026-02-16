@@ -62,140 +62,599 @@
       </section>
 
       <section class="section section-overview section-centered">
-        <h3 class="section-overview-title">프로젝트 개요</h3>
-        <p class="section-overview-desc">도로 주행 상황을 담은 영상 데이터를 AI가 분석하여, 실제 운전 중 발생할 수 있는 다양한 교통 시나리오를 텍스트로 설명하고, 이를 기반으로 퀴즈를 자동 생성하는 고령운전자를 위한 교통안전 교육 서비스입니다.</p>
-        <div class="overview-boxes">
-          <div class="overview-box overview-box-problem">
-            <h4 class="overview-box-title">문제 상황</h4>
-            <ul class="overview-list">
-              <li>고령 운전자 교통안전 교육 수요</li>
-              <li>도로 상황 기반 퀴즈 자동 생성 필요</li>
-            </ul>
-          </div>
-          <div class="overview-box overview-box-solution">
-            <h4 class="overview-box-title">우리가 해결한 것</h4>
-            <ul class="overview-list">
-              <li>영상→텍스트</li>
-              <li>RAG 기반 퀴즈</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-features">
-        <h3 class="section-title">주요 기능</h3>
-        <p class="section-desc">AI 기반 도로 상황 분석 및 퀴즈 생성 서비스</p>
-        <div class="features-grid">
-          <div class="feature-card feature-card-orange"><span class="feature-icon">r</span><span class="feature-text">AI 도로 주행 영상 분석</span></div>
-          <div class="feature-card feature-card-purple"><span class="feature-icon">e</span><span class="feature-text">NLP를 활용한 텍스트 변환</span></div>
-          <div class="feature-card feature-card-blue"><span class="feature-icon">↻</span><span class="feature-text">RAG 기반 퀴즈 생성</span></div>
-          <div class="feature-card feature-card-green"><span class="feature-icon">→</span><span class="feature-text">사용자 맞춤형 교육</span></div>
-        </div>
-        <div class="section-actions">
-          <a href="#" class="btn btn-sm">보고서 다운로드</a>
-          <a href="#" class="btn btn-sm">공유</a>
-        </div>
-      </section>
-
-      <section class="section section-architecture">
-        <h3 class="section-title">시스템 아키텍처</h3>
-        <p class="section-desc">서비스의 백엔드와 프론트엔드를 구성하는 기술 스택</p>
-        <div class="architecture-cards">
-          <div class="architecture-card architecture-card-red"><div class="arch-band"></div><h4>백엔드</h4><p>FastAPI, Python</p></div>
-          <div class="architecture-card architecture-card-blue"><div class="arch-band"></div><h4>프론트엔드</h4><p>React</p></div>
-          <div class="architecture-card architecture-card-purple"><div class="arch-band"></div><h4>데이터베이스</h4><p>MariaDB</p></div>
-        </div>
-        <div class="deployment-bar">배포 환경: AWS, Docker</div>
-      </section>
-
-      <section class="section section-ai-model">
-        <h3 class="section-title">AI 모델</h3>
-        <p class="section-desc">AI 모델의 상세 구성 및 학습 과정</p>
-        <div class="ai-model-cards">
-          <div class="ai-model-card ai-model-card-red"><h4>YOLOv8</h4><p>영상 객체 탐지</p></div>
-          <div class="ai-model-card ai-model-card-blue"><h4>KoBART</h4><p>텍스트 생성</p></div>
-          <div class="ai-model-card ai-model-card-purple"><h4>RAG (Retrieval Augmented Generation)</h4><p>법령 기반 퀴즈 생성</p></div>
-        </div>
-      </section>
-
-      <section class="section section-data-pipeline">
-        <h3 class="section-title">데이터 수집 및 전처리</h3>
-        <p class="section-desc">모델 학습을 위한 데이터 수집 및 전처리 파이프라인</p>
-        <div class="data-pipeline-grid">
-          <div class="data-pipeline-card"><span class="dp-icon">📄</span><span>도로 주행 영상 데이터</span></div>
-          <div class="data-pipeline-card"><span class="dp-icon">📄</span><span>교통 상황 텍스트 데이터</span></div>
-          <div class="data-pipeline-card"><span class="dp-icon">📄</span><span>퀴즈 데이터</span></div>
-          <div class="data-pipeline-card"><span class="dp-icon">📄</span><span>데이터 라벨링</span></div>
-          <div class="data-pipeline-card"><span class="dp-icon">📄</span><span>데이터 증강</span></div>
-          <div class="data-pipeline-card"><span class="dp-icon">📄</span><span>데이터 정제</span></div>
-        </div>
-      </section>
-
-      <section class="section section-tech">
-        <h3 class="section-title">사용 기술</h3>
-        <p class="section-desc">프로젝트에 사용된 주요 기술 스택</p>
-        <div class="tech-cards">
-          <div class="tech-card tech-card-green"><span class="tech-icon">💡</span><h4>Python</h4><p>백엔드·데이터 분석</p></div>
-          <div class="tech-card tech-card-blue"><span class="tech-icon">💡</span><h4>FastAPI</h4><p>API 서버</p></div>
-          <div class="tech-card tech-card-purple"><span class="tech-icon">💡</span><h4>React</h4><p>프론트엔드</p></div>
-        </div>
-        <div class="section-actions">
-          <a href="#" class="btn btn-primary">Figma 보기</a>
-          <a href="#" class="btn btn-secondary">GitHub 보기</a>
-        </div>
-      </section>
-
-      <section class="section section-outcomes-new">
-        <h3 class="section-title">성과 및 기여</h3>
-        <p class="section-desc">프로젝트를 통해 얻은 성과와 팀원별 기여도</p>
-        <div class="outcomes-list">
-          <div class="outcome-item outcome-item-red"><span class="outcome-icon">★</span><span>공모전 수상</span></div>
-          <div class="outcome-item outcome-item-blue"><span class="outcome-icon">★</span><span>논문 발표</span></div>
-          <div class="outcome-item outcome-item-purple"><span class="outcome-icon">★</span><span>특허 출원</span></div>
-          <div class="outcome-item outcome-item-green"><span class="outcome-icon">★</span><span>서비스 상용화</span></div>
-        </div>
-      </section>
-
-      <section class="section section-team-compact">
-        <h3 class="section-title">팀</h3>
-        <p class="section-desc">프로젝트에 참여한 팀원 소개</p>
-        <div class="team-compact-cards">
-          <div class="team-compact-card team-compact-blue"><div class="team-compact-avatar">B</div><h4>백엔드 개발자</h4><p>API·인프라 담당</p></div>
-          <div class="team-compact-card team-compact-purple"><div class="team-compact-avatar">F</div><h4>프론트엔드 개발자</h4><p>UI·대시보드 담당</p></div>
-        </div>
-      </section>
-
-      <section class="section section-gallery">
-        <h3 class="section-title">갤러리</h3>
-        <p class="section-desc">프로젝트의 주요 이미지 및 영상</p>
-        <div class="gallery-items">
-          <div class="gallery-item"><span class="gallery-icon">🖼</span><span>앱 UI</span></div>
-          <div class="gallery-item"><span class="gallery-icon">🖼</span><span>웹 UI</span></div>
-          <div class="gallery-item"><span class="gallery-icon">🖼</span><span>데모 영상</span></div>
-          <div class="gallery-item"><span class="gallery-icon">🖼</span><span>데이터 시각화</span></div>
-          <div class="gallery-item"><span class="gallery-icon">🖼</span><span>발표 자료</span></div>
-        </div>
-      </section>
-
-      <section class="section section-contact">
-        <h3 class="section-title">문의</h3>
-        <p class="section-desc">프로젝트에 대한 문의사항</p>
-        <div class="contact-cards">
-          <div class="contact-card"><span class="contact-icon">✉</span><span>이메일 문의</span></div>
-          <div class="contact-card"><span class="contact-icon">📞</span><span>전화 문의</span></div>
-          <div class="contact-card"><span class="contact-icon">📍</span><span>위치</span></div>
-        </div>
-      </section>
-
-      <section class="section section-footer-cta">
-        <div class="footer-cta-inner">
-          <input type="email" class="footer-cta-input" placeholder="이메일 주소를 입력해주세요" aria-label="이메일 주소" />
-          <div class="footer-cta-buttons">
-            <button type="button" class="btn btn-footer">구독하기</button>
-            <button type="button" class="btn btn-footer">문의하기</button>
+        <div class="overview-inner">
+          <h2 class="section-overview-title">프로젝트 개요</h2>
+          <p class="section-overview-desc">도로 주행 상황을 담은 영상 데이터를 AI가 분석하여, 실제 운전 중 발생할 수 있는 다양한 교통 시나리오를 텍스트로 설명하고, 이를 기반으로 퀴즈를 자동 생성하는 고령운전자를 위한 교통안전 교육 서비스입니다.</p>
+          <div class="overview-grid">
+            <div class="overview-card overview-card-problem">
+              <div class="overview-card-header">
+                <div class="overview-card-icon overview-card-icon-problem" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+                </div>
+                <h3 class="overview-card-title">🚨 문제 상황</h3>
+              </div>
+              <ul class="overview-list">
+                <li><span class="overview-bullet" aria-hidden="true">•</span><span>고령운전자 교통사고 증가</span></li>
+                <li><span class="overview-bullet" aria-hidden="true">•</span><span>기존 교통안전 교육의 한계 (텍스트 중심)</span></li>
+                <li><span class="overview-bullet" aria-hidden="true">•</span><span>영상 기반 학습 콘텐츠 부족</span></li>
+                <li><span class="overview-bullet" aria-hidden="true">•</span><span>도로교통법과 실제 상황 연결의 어려움</span></li>
+              </ul>
+            </div>
+            <div class="overview-card overview-card-solution">
+              <div class="overview-card-header">
+                <div class="overview-card-icon overview-card-icon-solution" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+                <h3 class="overview-card-title">🎯 우리가 해결한 것</h3>
+              </div>
+              <ul class="overview-list">
+                <li><span class="overview-check" aria-hidden="true">✓</span><span>AI가 도로 영상 → 상황 설명 자동 생성</span></li>
+                <li><span class="overview-check" aria-hidden="true">✓</span><span>도로교통법 기반 퀴즈 자동 생성 (RAG)</span></li>
+                <li><span class="overview-check" aria-hidden="true">✓</span><span>사용자 맞춤형 학습 분석 제공</span></li>
+                <li><span class="overview-check" aria-hidden="true">✓</span><span>영상 기반 실전형 교육 콘텐츠 제공</span></li>
+              </ul>
+            </div>
           </div>
         </div>
-        <p class="footer-cta-copy">© AI-GO Project</p>
+      </section>
+
+      <section class="section section-features section-structure">
+        <div class="features-inner">
+          <h2 class="features-title">시스템 구조 한 눈에 보기</h2>
+          <p class="features-subtitle">🏗 데이터 흐름 중심 아키텍처</p>
+          <div class="structure-box">
+            <div class="structure-grid">
+              <div class="structure-card structure-card-orange text-center">
+                <div class="structure-card-icon structure-card-icon-orange" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>
+                </div>
+                <h3 class="structure-card-name">Qwen VL</h3>
+                <p class="structure-card-desc">영상 → 텍스트 변환</p>
+              </div>
+              <div class="structure-card structure-card-purple text-center">
+                <div class="structure-card-icon structure-card-icon-purple" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18V5"/><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"/><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"/><path d="M18 18a4 4 0 0 0 2-7.464"/><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"/><path d="M6 18a4 4 0 0 1-2-7.464"/><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"/></svg>
+                </div>
+                <h3 class="structure-card-name">GPT-OSS + RAG</h3>
+                <p class="structure-card-desc">법령 기반 문제 생성</p>
+              </div>
+              <div class="structure-card structure-card-blue text-center">
+                <div class="structure-card-icon structure-card-icon-blue" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+                </div>
+                <h3 class="structure-card-name">MariaDB</h3>
+                <p class="structure-card-desc">사용자 학습 데이터 저장</p>
+              </div>
+              <div class="structure-card structure-card-green text-center">
+                <div class="structure-card-icon structure-card-icon-green" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+                </div>
+                <h3 class="structure-card-name">React + FastAPI</h3>
+                <p class="structure-card-desc">서비스 구현</p>
+              </div>
+            </div>
+            <div class="structure-flow">
+              <div class="structure-flow-item">
+                <div class="structure-flow-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="structure-flow-icon" aria-hidden="true"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>
+                </div>
+                <p class="structure-flow-label">도로 영상 분석</p>
+              </div>
+              <div class="structure-flow-arrow" aria-hidden="true"></div>
+              <div class="structure-flow-item">
+                <div class="structure-flow-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="structure-flow-icon" aria-hidden="true"><path d="M12 18V5"/><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"/><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"/><path d="M18 18a4 4 0 0 0 2-7.464"/><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"/><path d="M6 18a4 4 0 0 1-2-7.464"/><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"/></svg>
+                </div>
+                <p class="structure-flow-label">멀티모달 처리</p>
+              </div>
+              <div class="structure-flow-arrow" aria-hidden="true"></div>
+              <div class="structure-flow-item">
+                <div class="structure-flow-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="structure-flow-icon" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+                </div>
+                <p class="structure-flow-label">RAG 퀴즈 생성</p>
+              </div>
+              <div class="structure-flow-arrow" aria-hidden="true"></div>
+              <div class="structure-flow-item">
+                <div class="structure-flow-box">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="structure-flow-icon" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+                </div>
+                <p class="structure-flow-label">기간 분석 피드백</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-architecture section-role">
+        <div class="role-inner">
+          <h2 class="role-title">나의 역할</h2>
+          <p class="role-subtitle">👤 My Contribution</p>
+          <p class="role-badge">Data Scientist</p>
+          <div class="role-grid">
+            <div class="role-card">
+              <div class="role-card-header">
+                <div class="role-card-icon role-card-icon-orange" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                </div>
+                <h3 class="role-card-name">1. 위험상황 분류 모델 설계</h3>
+              </div>
+              <ul class="role-list">
+                <li><span class="role-bullet" aria-hidden="true">•</span><span>위험도 산정 기준 정의</span></li>
+                <li><span class="role-bullet" aria-hidden="true">•</span><span>난이도 레벨링 알고리즘 설계</span></li>
+                <li><span class="role-bullet" aria-hidden="true">•</span><span>사용자 풀이 데이터 기반 피드백 로직 설계</span></li>
+              </ul>
+            </div>
+            <div class="role-card">
+              <div class="role-card-header">
+                <div class="role-card-icon role-card-icon-blue" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+                </div>
+                <h3 class="role-card-name">2. DB 스키마 및 인덱스 최적화</h3>
+              </div>
+              <ul class="role-list">
+                <li><span class="role-bullet" aria-hidden="true">•</span><span>사용자 풀이 로그 테이블 구조 설계</span></li>
+                <li><span class="role-bullet" aria-hidden="true">•</span><span>퀴즈/법령 매핑 테이블 설계</span></li>
+                <li><span class="role-bullet" aria-hidden="true">•</span><span>조회 성능 개선 (Index 설계)</span></li>
+              </ul>
+            </div>
+            <div class="role-card">
+              <div class="role-card-header">
+                <div class="role-card-icon role-card-icon-purple" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+                </div>
+                <h3 class="role-card-name">3. 성능 평가</h3>
+              </div>
+              <ul class="role-list">
+                <li><span class="role-bullet" aria-hidden="true">•</span><span>정량 평가 설계</span></li>
+                <li><span class="role-bullet" aria-hidden="true">•</span><span>정성 평가 진행</span></li>
+                <li><span class="role-bullet" aria-hidden="true">•</span><span>서비스 상용화 가능성 검증</span></li>
+              </ul>
+            </div>
+          </div>
+          <div class="role-banner">
+            <p class="role-banner-text">💡 README에는 팀 단위로 작성되어 있지만, <span class="role-banner-highlight">포트폴리오에서는 "내가 한 것만 분리"</span>하여 명확히 제시</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-ai-model section-model-detail">
+        <div class="model-detail-inner">
+          <h2 class="model-detail-title">모델 설계 상세</h2>
+          <p class="model-detail-subtitle">🤖 AI Pipeline</p>
+          <div class="model-detail-cards">
+            <div class="model-detail-card model-detail-card-orange">
+              <div class="model-detail-card-header">
+                <div class="model-detail-card-icon model-detail-card-icon-orange" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>
+                </div>
+                <div>
+                  <h3 class="model-detail-card-name">Qwen VL</h3>
+                  <p class="model-detail-card-tagline">Vision-Language 모델</p>
+                </div>
+              </div>
+              <div class="model-detail-card-body">
+                <p class="model-detail-role"><span class="model-detail-role-label">역할:</span> 영상 → 상황 설명 스크립트 생성</p>
+                <p class="model-detail-desc">도로 주행 영상으로부터 스크립트, 도로 상황을 정확하게 설명하는 텍스트를 도출</p>
+              </div>
+            </div>
+            <div class="model-detail-card model-detail-card-blue">
+              <div class="model-detail-card-header">
+                <div class="model-detail-card-icon model-detail-card-icon-blue" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18V5"/><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"/><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"/><path d="M18 18a4 4 0 0 0 2-7.464"/><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"/><path d="M6 18a4 4 0 0 1-2-7.464"/><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"/></svg>
+                </div>
+                <div>
+                  <h3 class="model-detail-card-name">GPT-OSS + RAG</h3>
+                  <p class="model-detail-card-tagline">법령 데이터 벡터화 및 검색</p>
+                </div>
+              </div>
+              <div class="model-detail-card-body model-detail-card-body-steps">
+                <div class="model-detail-step">
+                  <p class="model-detail-step-title">1. 법령 데이터 벡터화</p>
+                  <p class="model-detail-desc">도로교통법을 FAISS 기반으로 벡터화</p>
+                </div>
+                <div class="model-detail-step">
+                  <p class="model-detail-step-title">2. 상황 매핑</p>
+                  <p class="model-detail-desc">Qwen이 생성한 상황 설명과 관련된 법령 조항 자동 매핑</p>
+                </div>
+                <div class="model-detail-step">
+                  <p class="model-detail-step-title">3. 퀴즈 생성</p>
+                  <p class="model-detail-desc">4지선다 객관식 문제 자동 생성</p>
+                </div>
+              </div>
+            </div>
+            <div class="model-detail-card model-detail-card-purple">
+              <div class="model-detail-card-header">
+                <div class="model-detail-card-icon model-detail-card-icon-purple" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>
+                </div>
+                <div>
+                  <h3 class="model-detail-card-name">LTX-Video</h3>
+                  <p class="model-detail-card-tagline">AI 기반 영상 생성</p>
+                </div>
+              </div>
+              <div class="model-detail-card-body">
+                <p class="model-detail-role"><span class="model-detail-role-label model-detail-role-label-purple">역할:</span> 이미지를 도로주행 영상으로 확장</p>
+                <p class="model-detail-desc">공유마당 도로주행 이미지 → 영상 확장하여 퀴즈 비디오 생성</p>
+              </div>
+            </div>
+          </div>
+          <div class="model-detail-banner">
+            <p class="model-detail-banner-text">💡 "RAG 구조를 왜 선택했는지" 반드시 설명: <br><span class="model-detail-banner-desc">실시간으로 변경되는 도로교통법을 반영하고, 법령 기반 정확한 퀴즈 생성을 위해 RAG(Retrieval-Augmented Generation) 방식 채택</span></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-data-pipeline section-data-design">
+        <div class="data-design-inner">
+          <h2 class="data-design-title">데이터 설계</h2>
+          <p class="data-design-subtitle">🗂 DB 설계 구조</p>
+          <div class="data-design-box">
+            <div class="data-design-grid">
+              <div class="data-design-card">
+                <div class="data-design-card-icon data-design-card-icon-blue" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg>
+                </div>
+                <h3 class="data-design-card-name">User</h3>
+                <p class="data-design-card-desc">사용자 정보</p>
+              </div>
+              <div class="data-design-card">
+                <div class="data-design-card-icon data-design-card-icon-purple" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>
+                </div>
+                <h3 class="data-design-card-name">Quiz</h3>
+                <p class="data-design-card-desc">퀴즈 데이터</p>
+              </div>
+              <div class="data-design-card">
+                <div class="data-design-card-icon data-design-card-icon-orange" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+                </div>
+                <h3 class="data-design-card-name">Law Mapping</h3>
+                <p class="data-design-card-desc">법령 매핑</p>
+              </div>
+              <div class="data-design-card">
+                <div class="data-design-card-icon data-design-card-icon-green" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                </div>
+                <h3 class="data-design-card-name">Quiz Result</h3>
+                <p class="data-design-card-desc">퀴즈 결과</p>
+              </div>
+              <div class="data-design-card">
+                <div class="data-design-card-icon data-design-card-icon-yellow" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+                </div>
+                <h3 class="data-design-card-name">Insight Log</h3>
+                <p class="data-design-card-desc">분석 로그</p>
+              </div>
+              <div class="data-design-card">
+                <div class="data-design-card-icon data-design-card-icon-cyan" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+                </div>
+                <h3 class="data-design-card-name">Index</h3>
+                <p class="data-design-card-desc">성능 최적화</p>
+              </div>
+            </div>
+            <div class="data-design-erd">
+              <p class="data-design-erd-label">📊 ERD 다이어그램</p>
+              <div class="data-design-erd-placeholder">
+                <p class="data-design-erd-placeholder-text">ERD 이미지 삽입 영역</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-tech section-screens">
+        <div class="screens-inner">
+          <h2 class="screens-title">서비스 화면</h2>
+          <p class="screens-subtitle">📱 주요 화면</p>
+          <div class="screens-grid">
+            <div class="screens-card">
+              <div class="screens-card-header">
+                <div class="screens-card-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg>
+                </div>
+                <div>
+                  <h3 class="screens-card-name">퀴즈 화면</h3>
+                  <p class="screens-card-desc">영상 기반 인터랙티브 퀴즈</p>
+                </div>
+              </div>
+              <div class="screens-placeholder"><p>UI 스크린샷 영역</p></div>
+            </div>
+            <div class="screens-card">
+              <div class="screens-card-header">
+                <div class="screens-card-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg>
+                </div>
+                <div>
+                  <h3 class="screens-card-name">결과 화면</h3>
+                  <p class="screens-card-desc">점수 및 정답률 표시</p>
+                </div>
+              </div>
+              <div class="screens-placeholder"><p>UI 스크린샷 영역</p></div>
+            </div>
+            <div class="screens-card">
+              <div class="screens-card-header">
+                <div class="screens-card-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></svg>
+                </div>
+                <div>
+                  <h3 class="screens-card-name">오답노트</h3>
+                  <p class="screens-card-desc">틀린 문제 복습 기능</p>
+                </div>
+              </div>
+              <div class="screens-placeholder"><p>UI 스크린샷 영역</p></div>
+            </div>
+            <div class="screens-card">
+              <div class="screens-card-header">
+                <div class="screens-card-icon" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+                </div>
+                <div>
+                  <h3 class="screens-card-name">학습 분석 대시보드</h3>
+                  <p class="screens-card-desc">사용자 맞춤 인사이트</p>
+                </div>
+              </div>
+              <div class="screens-placeholder"><p>UI 스크린샷 영역</p></div>
+            </div>
+          </div>
+          <div class="screens-tip">
+            <p class="screens-tip-text">💡 UI는 "보여주기용"이고, 설명은 "로직 중심"으로 작성</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-outcomes-new section-performance">
+        <div class="performance-inner">
+          <h2 class="performance-title">성능 평가</h2>
+          <p class="performance-subtitle">📈 Performance</p>
+          <div class="performance-grid">
+            <div class="performance-card performance-card-green">
+              <div class="performance-card-icon performance-card-icon-green" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg>
+              </div>
+              <h3 class="performance-card-value">89%</h3>
+              <p class="performance-card-label">영상 설명 정확도</p>
+              <p class="performance-card-desc">Qwen VL 모델 성능</p>
+            </div>
+            <div class="performance-card performance-card-blue">
+              <div class="performance-card-icon performance-card-icon-blue" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+              </div>
+              <h3 class="performance-card-value">A+</h3>
+              <p class="performance-card-label">문제 생성 품질</p>
+              <p class="performance-card-desc">시험자 테스트 결과</p>
+            </div>
+            <div class="performance-card performance-card-purple">
+              <div class="performance-card-icon performance-card-icon-purple" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg>
+              </div>
+              <h3 class="performance-card-value">4.5/5</h3>
+              <p class="performance-card-label">사용자 만족도</p>
+              <p class="performance-card-desc">테스트 참가자 평가</p>
+            </div>
+          </div>
+          <div class="performance-result-box">
+            <h3 class="performance-result-title">성능 평가 결과서</h3>
+            <p class="performance-result-desc">아이-고 서비스를 제작하는데 사용한 모델 성능을 정량/정성적으로 평가하여 서비스 상용화 가능성을 검증</p>
+            <div class="performance-result-actions">
+              <a href="#" class="btn-performance btn-performance-primary"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>성능평가 결과서 보기</a>
+              <button type="button" class="btn-performance btn-performance-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>PDF 다운로드</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-team-compact section-challenge">
+        <div class="challenge-inner">
+          <h2 class="challenge-title">기술적 도전과 해결</h2>
+          <p class="challenge-subtitle">💡 차별화 포인트</p>
+          <div class="challenge-list">
+            <div class="challenge-card">
+              <div class="challenge-card-icon challenge-card-icon-red" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
+              </div>
+              <div class="challenge-card-body">
+                <div class="challenge-row challenge-row-problem"><span class="challenge-label">문제:</span><span class="challenge-text">영상 설명 hallucination 문제</span></div>
+                <div class="challenge-row challenge-row-solution"><span class="challenge-label">해결:</span><span class="challenge-text">RAG로 법령 데이터 보완하여 정확도 향상</span></div>
+              </div>
+            </div>
+            <div class="challenge-card">
+              <div class="challenge-card-icon challenge-card-icon-blue" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"/><circle cx="12" cy="12" r="3"/></svg>
+              </div>
+              <div class="challenge-card-body">
+                <div class="challenge-row challenge-row-problem"><span class="challenge-label">문제:</span><span class="challenge-text">법령 매핑 오류</span></div>
+                <div class="challenge-row challenge-row-solution"><span class="challenge-label">해결:</span><span class="challenge-text">벡터 정제 및 유사도 임계값 조정</span></div>
+              </div>
+            </div>
+            <div class="challenge-card">
+              <div class="challenge-card-icon challenge-card-icon-purple" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 7h6v6"/><path d="m22 7-8.5 8.5-5-5L2 17"/></svg>
+              </div>
+              <div class="challenge-card-body">
+                <div class="challenge-row challenge-row-problem"><span class="challenge-label">문제:</span><span class="challenge-text">난이도 불균형</span></div>
+                <div class="challenge-row challenge-row-solution"><span class="challenge-label">해결:</span><span class="challenge-text">사용자 로그 기반 재조정 알고리즘 적용</span></div>
+              </div>
+            </div>
+            <div class="challenge-card">
+              <div class="challenge-card-icon challenge-card-icon-green" aria-hidden="true">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></svg>
+              </div>
+              <div class="challenge-card-body">
+                <div class="challenge-row challenge-row-problem"><span class="challenge-label">문제:</span><span class="challenge-text">Docker 환경 충돌</span></div>
+                <div class="challenge-row challenge-row-solution"><span class="challenge-label">해결:</span><span class="challenge-text">환경 통합 설계 및 컨테이너 최적화</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="challenge-tip">
+            <p class="challenge-tip-text">💼 이걸 쓰면 "진짜 개발자"로 보입니다</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-gallery section-results">
+        <div class="results-inner">
+          <h2 class="results-title">결과 및 확장성</h2>
+          <div class="results-grid">
+            <div class="results-card results-card-blue">
+              <div class="results-card-header">
+                <div class="results-card-icon results-card-icon-blue" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"/><circle cx="12" cy="8" r="6"/></svg>
+                </div>
+                <h3 class="results-card-name">🏆 프로젝트 결과</h3>
+              </div>
+              <ul class="results-list">
+                <li><span class="results-check results-check-blue" aria-hidden="true">✓</span><span>공모전 제출 완료</span></li>
+                <li><span class="results-check results-check-blue" aria-hidden="true">✓</span><span>서비스 프로토타입 완성</span></li>
+                <li><span class="results-check results-check-blue" aria-hidden="true">✓</span><span>AI 기반 학습 자동화 검증</span></li>
+              </ul>
+            </div>
+            <div class="results-card results-card-purple">
+              <div class="results-card-header">
+                <div class="results-card-icon results-card-icon-purple" aria-hidden="true">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
+                </div>
+                <h3 class="results-card-name">🚀 확장 가능성</h3>
+              </div>
+              <ul class="results-list">
+                <li><span class="results-arrow" aria-hidden="true">→</span><span>보험사 안전교육</span></li>
+                <li><span class="results-arrow" aria-hidden="true">→</span><span>시뮬레이션 운전 교육</span></li>
+                <li><span class="results-arrow" aria-hidden="true">→</span><span>자율주행 데이터 학습 보조</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-contact section-team">
+        <div class="team-inner">
+          <h2 class="team-title">팀원 소개</h2>
+          <div class="team-grid">
+            <div class="team-card">
+              <div class="team-avatar">김</div>
+              <h3 class="team-name">김채린</h3>
+              <p class="team-role">LLM/RAG Engineer</p>
+              <ul class="team-list">
+                <li><span class="team-bullet" aria-hidden="true">•</span><span>영상→텍스트 파이프라인 설계</span></li>
+                <li><span class="team-bullet" aria-hidden="true">•</span><span>도로교통법 기반 RAG 매핑 로직 구현</span></li>
+              </ul>
+              <a href="https://github.com/chrnnn" target="_blank" rel="noopener noreferrer" class="team-github"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>GitHub</a>
+            </div>
+            <div class="team-card team-card-highlight">
+              <div class="team-avatar">이</div>
+              <h3 class="team-name">이민진</h3>
+              <p class="team-role">Data Scientist</p>
+              <ul class="team-list">
+                <li><span class="team-bullet" aria-hidden="true">•</span><span>위험상황 분류·난이도 산정 모델링</span></li>
+                <li><span class="team-bullet" aria-hidden="true">•</span><span>MariaDB 스키마/인덱스 최적화</span></li>
+              </ul>
+              <a href="https://github.com/catherine-00" target="_blank" rel="noopener noreferrer" class="team-github"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>GitHub</a>
+            </div>
+            <div class="team-card">
+              <div class="team-avatar">주</div>
+              <h3 class="team-name">주수진</h3>
+              <p class="team-role">LLM/RAG Engineer</p>
+              <ul class="team-list">
+                <li><span class="team-bullet" aria-hidden="true">•</span><span>실험 설계/성능 분석</span></li>
+                <li><span class="team-bullet" aria-hidden="true">•</span><span>Q/A·설명형 프롬프트 채점 기준 고도화</span></li>
+              </ul>
+              <a href="https://github.com/xx1003" target="_blank" rel="noopener noreferrer" class="team-github"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>GitHub</a>
+            </div>
+            <div class="team-card">
+              <div class="team-avatar">김</div>
+              <h3 class="team-name">김동섭</h3>
+              <p class="team-role">Front-End</p>
+              <ul class="team-list">
+                <li><span class="team-bullet" aria-hidden="true">•</span><span>React 퀴즈/분석 대시보드 구현</span></li>
+                <li><span class="team-bullet" aria-hidden="true">•</span><span>JWT 인증 흐름 핸들링</span></li>
+              </ul>
+              <a href="https://github.com/sulbu123" target="_blank" rel="noopener noreferrer" class="team-github"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>GitHub</a>
+            </div>
+            <div class="team-card">
+              <div class="team-avatar">이</div>
+              <h3 class="team-name">이찬웅</h3>
+              <p class="team-role">Back-end</p>
+              <ul class="team-list">
+                <li><span class="team-bullet" aria-hidden="true">•</span><span>FastAPI 도메인 설계</span></li>
+                <li><span class="team-bullet" aria-hidden="true">•</span><span>Docker구축, 로깅·CORS/JWT 보안</span></li>
+              </ul>
+              <a href="https://github.com/whathefu" target="_blank" rel="noopener noreferrer" class="team-github"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>GitHub</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-footer-cta section-retro">
+        <div class="retro-inner">
+          <h2 class="retro-title">회고</h2>
+          <div class="retro-list">
+            <div class="retro-card">
+              <div class="retro-card-inner">
+                <div class="retro-avatar">김</div>
+                <div class="retro-body">
+                  <h3 class="retro-name">김채린</h3>
+                  <p class="retro-text">처음에는 공유마당 원천데이터를 효과적으로 활용하고자 하는 작은 아이디어에서 출발했지만, 팀원들과의 협업을 통해 원천데이터의 가치를 서비스로 확장하는 과정을 경험하며 큰 성취감을 얻었고, 본 서비스가 고령 운전자의 안전 운전에 실질적인 도움을 주는 동시에 다양한 분야로도 활용될 수 있기를 기대합니다.</p>
+                </div>
+              </div>
+            </div>
+            <div class="retro-card">
+              <div class="retro-card-inner">
+                <div class="retro-avatar">김</div>
+                <div class="retro-body">
+                  <h3 class="retro-name">김동섭</h3>
+                  <p class="retro-text">생각보다 어려운 점이 많았습니다. 개발관련 지식이 부족해서 힘들었지만, 좋은 팀원들과 강사님의 도움을 받아, 개발을 이어갈 수 있었습니다. 팀원들에게 정말 감사하고, 이번에 진행한 프로젝트를 통해 한 단계 성장할 수 있을 것 같습니다.</p>
+                </div>
+              </div>
+            </div>
+            <div class="retro-card retro-card-highlight">
+              <div class="retro-card-inner">
+                <div class="retro-avatar">이</div>
+                <div class="retro-body">
+                  <h3 class="retro-name">이민진</h3>
+                  <p class="retro-text">기획의 중요성을 깊이 깨달았고, 실행 과정에서 문제 해결과 방향 설정이 서비스의 완성도를 좌우함을 느꼈습니다. AI의 발전 가능성과 이를 활용한 무궁무진한 가능성도 경험했습니다. 프로젝트를 통해 많은 것을 배우며 성장할 수 있는 소중한 시간이었습니다.</p>
+                </div>
+              </div>
+            </div>
+            <div class="retro-card">
+              <div class="retro-card-inner">
+                <div class="retro-avatar">이</div>
+                <div class="retro-body">
+                  <h3 class="retro-name">이찬웅</h3>
+                  <p class="retro-text">기획이 잘 되어도 그 기획을 실제 기능으로 구현하는 과정은 생각보다 훨씬 디테일하고 변수가 많다는 걸 배웠습니다. 결국 프로젝트를 진행함에 있어서 유기적으로 잘 맞물려야 완성도가 올라간다는 점을 느꼈고, 역할마다 요구되는 노력의 방향도 달라서 협업 방식과 소통 규칙의 중요성을 체감했습니다.</p>
+                </div>
+              </div>
+            </div>
+            <div class="retro-card">
+              <div class="retro-card-inner">
+                <div class="retro-avatar">주</div>
+                <div class="retro-body">
+                  <h3 class="retro-name">주수진</h3>
+                  <p class="retro-text">빅데이터 분석 기능 구현을 많이 못 해본 점이 아쉽지만, AI 모델을 직접 사용해 서비스를 제작하는 경험을 했습니다. 프로젝트를 위해 협업을 하면서 서로 의견을 합일하는 방법을 배웠으며, 개발 과정에서 문제가 생겼을 때의 의사소통의 중요성을 다시 한 번 깨닫게 되는 경험이었습니다.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-learn-more">
+        <div class="learn-more-inner">
+          <h2 class="learn-more-title">더 알아보기</h2>
+          <p class="learn-more-desc">GitHub 코드와 상세 문서를 확인하세요</p>
+          <div class="learn-more-buttons">
+            <a href="https://github.com/AI-GO-Project/AI_GO_model" target="_blank" rel="noopener noreferrer" class="btn-learn btn-learn-primary"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>GitHub 리포지토리</a>
+            <button type="button" class="btn-learn btn-learn-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></svg>결과 보고서</button>
+            <button type="button" class="btn-learn btn-learn-secondary"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>성능평가서</button>
+          </div>
+          <div class="learn-more-footer">
+            <div class="learn-more-links">
+              <button type="button" class="learn-more-link">프로젝트 소개</button>
+              <button type="button" class="learn-more-link">기술 문서</button>
+              <button type="button" class="learn-more-link">성능 평가</button>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   </main>
