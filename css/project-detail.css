@@ -39,38 +39,34 @@ body.project-detail.standalone *::after { box-sizing: border-box; }
 body.project-detail.standalone .main {
   width: 100%;
   max-width: none;
-  padding: 0;
+  padding: 40px 0 0;
   margin: 0;
 }
 
+/* main-content: 뷰포트 안에서 중앙 정렬, 좌우 80px */
 body.project-detail.standalone .main-content {
-  max-width: 100%;
-  padding: 0 40px 64px;
-  margin-left: 230px;
-  margin-right: 230px;
+  max-width: 1280px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 80px 64px;
   text-align: left;
 }
 
-@media (max-width: 1400px) {
-  body.project-detail.standalone .main-content { margin-left: 80px; margin-right: 80px; }
-}
 @media (max-width: 1024px) {
-  body.project-detail.standalone .main-content { margin-left: 40px; margin-right: 40px; }
+  body.project-detail.standalone .main-content { padding: 0 40px 48px; }
 }
 @media (max-width: 768px) {
-  body.project-detail.standalone .main-content { padding: 0 20px 48px; margin-left: 20px; margin-right: 20px; }
+  body.project-detail.standalone .main-content { padding: 0 20px 48px; }
 }
 
-/* Hero: 좌우 마진 없이 전체 너비 */
+/* Hero: main-content 패딩을 빠져나와 전체 너비로 */
 body.project-detail.standalone .hero {
-  margin-left: -230px;
-  margin-right: -230px;
-  width: calc(100% + 460px);
-  padding-left: 230px;
-  padding-right: 230px;
-}
-@media (max-width: 1400px) {
-  body.project-detail.standalone .hero { margin-left: -80px; margin-right: -80px; width: calc(100% + 160px); padding-left: 80px; padding-right: 80px; }
+  margin-left: -80px;
+  margin-right: -80px;
+  width: calc(100% + 160px);
+  padding-left: 80px;
+  padding-right: 80px;
 }
 @media (max-width: 1024px) {
   body.project-detail.standalone .hero { margin-left: -40px; margin-right: -40px; width: calc(100% + 80px); padding-left: 40px; padding-right: 40px; }
