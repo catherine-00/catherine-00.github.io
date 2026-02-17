@@ -31,6 +31,20 @@ body.project-detail.standalone {
   color: #f1f5f9;
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
+  /* 스크롤바 숨김, 마우스 휠로만 스크롤 */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+body.project-detail.standalone::-webkit-scrollbar {
+  display: none;
+}
+/* html에서 스크롤되는 경우(일부 브라우저) 대비 */
+html.project-detail-standalone {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+html.project-detail-standalone::-webkit-scrollbar {
+  display: none;
 }
 body.project-detail.standalone *,
 body.project-detail.standalone *::before,
@@ -43,14 +57,14 @@ body.project-detail.standalone .main {
   margin: 0;
 }
 
-/* main-content: 뷰포트 안에서 중앙 정렬, 좌우 80px */
+/* main-content: 뷰포트 안에서 중앙 정렬, 좌우 80px, 전체 요소 가운데 정렬 */
 body.project-detail.standalone .main-content {
   max-width: 1280px;
   width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding: 0 80px 64px;
-  text-align: left;
+  text-align: center;
 }
 
 @media (max-width: 1024px) {
@@ -79,8 +93,8 @@ body.project-detail.standalone .hero {
 .project-detail .hero {
   position: relative;
   min-height: 712px;
-  margin: 0 -40px 40px;
-  padding: 0 40px 56px;
+  margin: 0 -40px 0;
+  padding: 0 40px 10px;
   border-radius: 0;
   overflow: visible;
 }
@@ -109,18 +123,22 @@ body.project-detail.standalone .hero {
 .project-detail .hero-back:hover { color: #fff; }
 .project-detail .hero-back:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-/* hero-bg: top=72px, left=64px, width=1202px, height=640px - 그라데이션 + 도시 배경, 내부에 hero-inner 포함 */
+/* hero-bg: 배경만 가로 폭에 꽉 차게(100vw), 문서 흐름 유지 - 세로가 길어지면 아래 요소들이 밑으로 이동 */
 .project-detail .hero-bg {
-  position: absolute;
-  top: 72px;
-  left: 64px;
-  width: 1202px;
-  max-width: calc(100% - 128px);
-  height: 640px;
+  position: relative;
+  width: 100vw;
+  max-width: none;
+  min-width: 100%;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  margin-top: 0;
+  margin-bottom: 0;
   min-height: 640px;
+  height: auto;
   background: linear-gradient(to bottom, rgba(15, 23, 42, 0.7) 0%, rgba(2, 6, 23, 0.95) 50%, rgba(2, 6, 23, 1) 100%);
   border-radius: 0;
   overflow: hidden;
+  box-sizing: border-box;
 }
 .project-detail .hero-bg::before {
   content: '';
@@ -229,26 +247,39 @@ body.project-detail.standalone .hero {
 .project-detail .hero .btn-secondary { background: transparent; color: #e2e8f0; border: 1px solid #475569; }
 .project-detail .hero .btn-secondary:hover { border-color: #94a3b8; color: #fff; }
 
-/* Hero v2: hero-top 위·hero-bg 아래 레이아웃 */
+/* Hero v2: hero-top 위·hero-bg 아래 레이아웃 (hero-bg는 문서 흐름에 두어 세로가 길어지면 아래 요소들도 함께 밀림) */
 .project-detail .hero.hero-v2 {
   min-height: 700px;
   padding-top: 72px;
-  overflow: hidden;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
 }
-/* hero-inner는 hero-bg 안에 있음: 1202x640 영역 내부에 맞춤 */
+/* hero-inner: 내용은 기존 설정 유지, 최대 너비만 제한해 중앙 정렬 (배경은 hero-bg가 전체 폭) */
 .project-detail .hero-bg .hero-inner.hero-inner-v2 {
   position: relative;
   z-index: 1;
   width: 100%;
-  height: 100%;
-  max-width: none;
-  margin: 0;
-  padding: 48px 80px 48px;
+  max-width: min(1202px, calc(100% - 128px));
+  margin: 0 auto;
+  padding: 48px 80px 56px;
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 48px;
   align-items: center;
+  min-height: 0;
   box-sizing: border-box;
+  text-align: left;
+}
+
+.project-detail .hero-bg .hero-inner.hero-inner-v2 .hero-left {
+  min-width: 0;
+}
+
+.project-detail .hero-bg .hero-inner.hero-inner-v2 .hero-right {
+  display: flex;
+  justify-content: center;
+  min-width: 0;
 }
 .project-detail .hero-title-sub { display: block; font-size: 1.75rem; margin-top: 8px; }
 .project-detail .hero-info-grid-v2 { gap: 16px; margin-bottom: 32px; }
@@ -271,11 +302,115 @@ body.project-detail.standalone .hero {
 .project-detail .hero-cta .btn-hero-report { border-radius: 12px; font-weight: 700; background: #1e293b; border-color: #334155; cursor: pointer; }
 .project-detail .hero-cta .btn-hero-report:hover { background: #334155; }
 
+/* 가로 카테고리 선택 바 (hero 아래) - hero와 동일 너비 기준, nav-inner = hero-inner 가로폭 */
+body.project-detail.standalone .project-category-nav {
+  margin-left: -80px;
+  margin-right: -80px;
+  width: calc(100% + 160px);
+}
+.project-detail .project-category-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  margin: 0 -80px 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+}
+.project-detail .project-category-nav-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px 8px;
+  padding: 20px 80px;
+  width: max-content;
+  min-width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+  background: rgba(15, 18, 24, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border, #334155);
+}
+/* 첫 줄: 프로젝트 개요, 서비스 흐름, 나의 역할 (3개) / 둘째 줄: 나머지(줄바꿈 없음) */
+.project-detail .category-nav-break {
+  flex-basis: 100%;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: none;
+  pointer-events: none;
+}
+/* 둘째 줄: 한 줄 유지, 버튼 간격 일정·가운데 정렬 */
+.project-detail .project-category-nav-row2 {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1 1 100%;
+  min-width: min-content;
+  overflow: visible;
+  text-align: center;
+}
+.project-detail .project-category-nav-row2 .project-category-btn {
+  flex: 0 0 auto;
+}
+.project-detail .project-category-btn {
+  flex: 0 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-muted, #94a3b8);
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+}
+.project-detail .project-category-btn:hover {
+  color: var(--text, #f1f5f9);
+  background: rgba(51, 65, 85, 0.4);
+}
+.project-detail .project-category-btn.is-active {
+  color: #fff;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.35), rgba(6, 182, 212, 0.25));
+  border-color: rgba(59, 130, 246, 0.5);
+}
+/* 카테고리 모드: 선택한 섹션만 표시 */
+.project-detail.standalone .main-content .section[data-category] {
+  display: none;
+}
+.project-detail.standalone .main-content .section[data-category="overview"] {
+  display: block;
+}
+
+@media (max-width: 1024px) {
+  body.project-detail.standalone .project-category-nav { margin-left: -40px; margin-right: -40px; width: calc(100% + 80px); }
+  .project-detail .project-category-nav-inner { width: calc(100% - 48px); max-width: none; padding-left: 40px; padding-right: 40px; gap: 5px 6px; padding-top: 8px; padding-bottom: 8px; }
+  .project-detail .project-category-btn { padding: 5px 8px; font-size: 0.75rem; }
+}
+@media (max-width: 768px) {
+  body.project-detail.standalone .project-category-nav { margin-left: -20px; margin-right: -20px; width: calc(100% + 40px); }
+  .project-detail .project-category-nav-inner { width: calc(100% - 40px); max-width: none; padding-left: 20px; padding-right: 20px; gap: 4px 6px; padding-top: 8px; padding-bottom: 8px; }
+  .project-detail .project-category-btn { padding: 5px 8px; font-size: 0.7rem; }
+}
+
 /* 폰 목업 v2: 앱 UI */
 .project-detail .hero-phone-wrap { position: relative; }
 .project-detail .phone-mockup-v2 { position: relative; width: 320px; height: 650px; margin: 0 auto; }
 /* hero-bg 안에서는 640px 높이에 맞춤 (패딩 48*2 제외 ≈544px) */
-.project-detail .hero-bg .phone-mockup-v2 { width: 268px; height: 544px; }
+.project-detail .hero-bg .phone-mockup-v2 { width: 268px; height: 544px; max-width: 100%; }
 .project-detail .phone-frame {
   position: absolute;
   inset: 0;
@@ -382,8 +517,8 @@ body.project-detail.standalone .hero {
 @keyframes phone-glow-pulse { 0%, 100% { opacity: 0.6; } 50% { opacity: 1; } }
 
 @media (max-width: 1024px) {
-  .project-detail .hero-inner.hero-inner-v2 { grid-template-columns: 1fr; margin-left: 0; padding-top: 80px; }
-  .project-detail .phone-mockup-v2 { width: 280px; height: 570px; }
+  .project-detail .hero-bg .hero-inner.hero-inner-v2 { grid-template-columns: 1fr; padding: 56px 40px 64px; gap: 40px; }
+  .project-detail .phone-mockup-v2 { width: 280px; height: 570px; max-width: 100%; }
   .project-detail .phone-body { height: 440px; }
 }
 @media (max-width: 768px) {
@@ -405,24 +540,25 @@ body.project-detail.standalone .hero {
   font-size: 0.85rem;
 }
 
-/* Hero 반응형: hero-top + hero-bg 유지 */
+/* Hero 반응형: hero-top + hero-bg 유지 (hero-bg 배경은 항상 전체 폭) */
 @media (max-width: 1400px) {
   .project-detail .hero-top { left: 60px; }
-  .project-detail .hero-bg { left: 24px; width: calc(100% - 48px); max-width: none; }
   .project-detail .hero-inner { margin-left: 120px; width: calc(100% - 160px); max-width: none; min-height: 480px; }
 }
 @media (max-width: 1024px) {
   .project-detail .hero { min-height: 520px; padding: 0 24px 40px; padding-top: 56px; }
   .project-detail .hero-top { min-height: 56px; height: 56px; left: 40px; }
-  .project-detail .hero-bg { top: 56px; left: 24px; width: calc(100% - 48px); height: 460px; min-height: 460px; }
+  .project-detail .hero-bg { min-height: 460px; height: auto; }
   .project-detail .hero-inner { margin: 40px 0 0 24px; width: calc(100% - 48px); max-width: none; min-height: 360px; flex-wrap: wrap; gap: 24px; }
+  .project-detail .hero-bg .hero-inner.hero-inner-v2 { margin: 0 auto; width: 100%; max-width: calc(100% - 48px); }
 }
 @media (max-width: 768px) {
   .project-detail .hero { min-height: 400px; padding: 0 20px 32px; padding-top: 48px; }
   .project-detail .hero-top { min-height: 48px; height: 48px; left: 20px; }
   .project-detail .hero-back { font-size: 0.85rem; }
-  .project-detail .hero-bg { top: 48px; left: 20px; width: calc(100% - 40px); height: 320px; min-height: 320px; }
+  .project-detail .hero-bg { min-height: 320px; height: auto; }
   .project-detail .hero-inner { margin: 32px 0 0 0; width: 100%; min-height: 0; }
+  .project-detail .hero-bg .hero-inner.hero-inner-v2 { padding: 40px 24px 48px; gap: 32px; max-width: calc(100% - 40px); }
   .project-detail .hero-right .phone-mockup { width: 160px; height: 320px; }
 }
 
@@ -432,10 +568,10 @@ body.project-detail.standalone .hero {
 .project-detail .section h2.section-title { font-size: 1.35rem; font-weight: 700; color: #fff; margin-bottom: var(--space-16); }
 .project-detail .section-desc { font-size: 0.9rem; color: var(--text-muted); margin-bottom: var(--space-24); }
 
-/* 프로젝트 개요 - position: 730×285, left=290 중앙 배치 */
+/* 프로젝트 개요 - structure-box와 동일 너비 910px */
 .project-detail .section-overview {
   width: 100%;
-  max-width: 730px;
+  max-width: 910px;
   margin-left: auto;
   margin-right: auto;
   min-height: 285px;
@@ -452,16 +588,90 @@ body.project-detail.standalone .hero {
   font-size: 2.25rem;
   font-weight: 900;
   color: #fff;
-  margin: 0 0 1rem;
+  margin: 50px 0 1rem;
   text-align: center;
 }
-.project-detail .section-overview-desc {
-  max-width: 48rem;
+.project-detail .section-overview-desc-box {
+  max-width: 910px;
   margin: 0 auto 3rem;
+  margin-top: 0px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(6, 182, 212, 0.1) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-sizing: border-box;
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  text-align: left;
+}
+.project-detail .section-overview-desc-box .section-overview-desc {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+}
+.project-detail .section-overview-desc-box .section-overview-desc-box-logo {
+  flex-shrink: 0;
+  width: auto;
+  height: 80px;
+  object-fit: contain;
+}
+.project-detail .section-overview-desc-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  max-width: 910px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.project-detail .section-overview-desc-title-row .overview-card-icon,
+.project-detail .section-overview-desc-box .overview-card-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  flex-shrink: 0;
+}
+.project-detail .section-overview-desc-title-row .overview-card-icon svg,
+.project-detail .section-overview-desc-box .overview-card-icon svg {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+.project-detail .section-overview-desc-title-row .overview-card-icon img,
+.project-detail .section-overview-desc-box .overview-card-icon img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+.project-detail .overview-card-icon-car {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+}
+.project-detail .section-overview-desc-title-row .overview-card-icon-car {
+  background: rgba(59, 130, 246, 0.2);
+  color: #60a5fa;
+}
+.project-detail .section-overview-desc-title-row .overview-card-icon-car svg {
+  color: #60a5fa;
+}
+.project-detail .section-overview-desc-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #fff;
+}
+.project-detail .section-overview-desc {
+  margin: 0;
   font-size: 1rem;
-  color: #94a3b8;
+  color: rgba(203, 213, 225, 1);
   line-height: 1.625;
-  text-align: center;
+  text-align: left;
+  vertical-align: bottom;
 }
 .project-detail .overview-grid {
   display: grid;
@@ -470,20 +680,239 @@ body.project-detail.standalone .hero {
   margin-bottom: 3rem;
   text-align: left;
 }
+/* 세로 배치: 문제 박스(제목+4개 2x2) → 화살표 → 해결 */
+.project-detail .overview-grid.overview-grid-vertical {
+  grid-template-columns: 1fr;
+  gap: 0;
+  align-items: stretch;
+  max-width: 910px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.project-detail .overview-grid-vertical .overview-arrow,
+.project-detail .overview-grid-vertical .overview-card-solution {
+  grid-column: 1;
+}
+.project-detail .overview-grid-vertical .overview-arrow {
+  justify-self: center;
+}
+/* 문제 상황: 제목 + 내용(그리드), 테두리 없음 */
+.project-detail .overview-problem-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem 0;
+  margin-bottom: 0;
+  box-sizing: border-box;
+  max-width: 910px;
+}
+.project-detail .overview-grid-vertical .overview-problem-box {
+  grid-column: 1;
+}
+.project-detail .overview-problem-box-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.project-detail .overview-problem-box-title-row .overview-card-icon {
+  flex-shrink: 0;
+}
+.project-detail .overview-problem-box-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  text-align: left;
+}
+.project-detail .overview-problem-box-content {
+  flex: 1;
+  min-width: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.project-detail .overview-problem-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 804px;
+  height: auto;
+  align-items: stretch;
+}
+.project-detail .overview-problem-box .overview-problem-grid > .overview-card {
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+.project-detail .overview-problem-box .overview-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding: 1rem;
+  overflow: visible;
+  align-self: stretch;
+}
+.project-detail .overview-problem-box .overview-card-header {
+  margin-bottom: 0.5rem;
+}
+.project-detail .overview-problem-box .overview-card-icon {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+}
+.project-detail .overview-problem-box .overview-card-icon svg {
+  width: 18px;
+  height: 18px;
+}
+.project-detail .overview-problem-box .overview-card-title {
+  font-size: 1.125rem;
+  margin: 0 0 0.25rem;
+}
+.project-detail .overview-problem-box .overview-list li {
+  margin-bottom: 0.375rem;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: rgba(203, 213, 225, 1);
+}
+.project-detail .overview-problem-box .overview-list li:last-child {
+  margin-bottom: 0;
+}
+.project-detail .overview-problem-box .overview-list {
+  flex-shrink: 0;
+}
+.project-detail .overview-problem-box .overview-card-img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: top center;
+  margin-top: 0.5rem;
+  border-radius: 0.5rem;
+  vertical-align: top;
+  background-color: rgba(255, 255, 255, 1);
+}
+.project-detail .overview-problem-box .overview-card-img[alt="고령운전자 교통사고 비율"] {
+  height: 200px;
+  object-fit: contain;
+}
+.project-detail .overview-problem-box .overview-card-img[alt="고령-일반운전자의 위험운전행동 차이"] {
+  height: 200px;
+  object-fit: contain;
+}
+.project-detail .overview-problem-box .overview-card-img[alt="고령운전자 인터뷰"] {
+  height: 141px;
+  object-fit: contain;
+}
+.project-detail .overview-problem-box .overview-card-img[alt="고령운전자 면허 반납률 추이"] {
+  height: 141px;
+  object-fit: contain;
+}
+.project-detail .overview-problem-box .overview-card {
+  justify-content: flex-start;
+  align-items: center;
+}
+@media (max-width: 768px) {
+  .project-detail .overview-problem-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+    height: auto;
+  }
+}
+.project-detail .overview-grid-vertical .overview-card {
+  width: 100%;
+  min-width: 0;
+}
+.project-detail .overview-arrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  color: #64748b;
+}
+.project-detail .overview-arrow > svg:first-of-type,
+.project-detail .overview-arrow .overview-arrow-down {
+  width: 2rem;
+  height: 2rem;
+  flex-shrink: 0;
+}
+.project-detail .overview-arrow-yellow-box {
+  background: linear-gradient(135deg, rgba(254, 240, 138, 0.15) 0%, rgba(250, 204, 21, 0.15) 100%);
+  border: 1px solid rgba(250, 204, 21, 0.3);
+  border-radius: 1rem;
+  padding: 2rem;
+  box-sizing: border-box;
+  backdrop-filter: blur(8px);
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(203, 213, 225, 1);
+  max-width: 100%;
+  width: 100%;
+}
+.project-detail .overview-arrow-yellow-box-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+.project-detail .overview-arrow-yellow-box-row .overview-card-icon {
+  flex-shrink: 0;
+}
+.project-detail .overview-arrow-yellow-box-text {
+  flex: 1;
+  min-width: 0;
+}
+.project-detail .overview-arrow-yellow-box br {
+  display: block;
+  content: "";
+  margin-top: 0.25em;
+}
 .project-detail .overview-card {
   padding: 2rem;
   border-radius: 1rem;
   border: 1px solid transparent;
   box-sizing: border-box;
   backdrop-filter: blur(8px);
+  text-align: left;
 }
 .project-detail .overview-card-problem {
   background: linear-gradient(to bottom right, rgba(239, 68, 68, 0.1), rgba(249, 115, 22, 0.1));
   border-color: rgba(239, 68, 68, 0.3);
 }
 .project-detail .overview-card-solution {
-  background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.1));
-  border-color: rgba(59, 130, 246, 0.3);
+  position: relative;
+  width: 400px;
+  max-width: 100%;
+  padding-right: 5rem;
+  background: linear-gradient(to bottom right, rgba(134, 239, 172, 0.15), rgba(34, 197, 94, 0.15));
+  border-color: rgba(34, 197, 94, 0.3);
+}
+.project-detail .overview-card-solution-logo {
+  position: absolute;
+  right: 1.5rem;
+  top: 0;
+  bottom: 0;
+  height: 200px;
+  width: auto;
+  min-width: 50px;
+  margin: auto 30px;
+  object-fit: contain;
+  object-position: center right;
+  opacity: 0.9;
+}
+.project-detail .overview-card-solution .overview-card-icon-logo {
+  width: auto;
+  height: 200px;
+}
+.project-detail .overview-card-solution .overview-card-header {
+  width: 400px;
 }
 .project-detail .overview-card-header {
   display: flex;
@@ -505,12 +934,33 @@ body.project-detail.standalone .hero {
   color: #f87171;
 }
 .project-detail .overview-card-icon-solution {
-  background: rgba(59, 130, 246, 0.2);
-  color: #60a5fa;
+  background: rgba(34, 197, 94, 0.2);
+  color: rgba(6, 177, 69, 1);
+}
+.project-detail .overview-card-solution .overview-card-icon-solution {
+  background: rgba(34, 197, 94, 0.2);
+  color: rgba(6, 177, 69, 1);
+}
+.project-detail .overview-card-solution .overview-card-icon-solution svg {
+  color: rgba(6, 177, 69, 1);
+}
+.project-detail .overview-card-icon-warning {
+  background: rgba(250, 204, 21, 0.2);
+  color: #facc15;
 }
 .project-detail .overview-card-icon svg {
   width: 24px;
   height: 24px;
+}
+.project-detail .overview-card-icon-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  color: rgba(255, 255, 255, 1);
+  background-color: unset;
+  background: unset;
+  border: none;
+  border-radius: 30px;
 }
 .project-detail .overview-card-title {
   font-size: 1.5rem;
@@ -541,13 +991,21 @@ body.project-detail.standalone .hero {
   flex-shrink: 0;
 }
 .project-detail .overview-check {
-  color: #60a5fa;
+  color: rgba(68, 255, 0, 1);
   margin-top: 0.25rem;
   flex-shrink: 0;
 }
+.project-detail .overview-check.overview-check-arrow {
+  color: rgba(89, 255, 0, 1);
+}
+.project-detail .overview-card-solution .overview-list li:last-child > span:last-child {
+  width: 550px;
+  color: rgba(255, 255, 255, 1);
+}
 @media (max-width: 768px) {
   .project-detail .section-overview { min-height: 0; padding: 0 16px; }
-  .project-detail .overview-grid { grid-template-columns: 1fr; gap: 1rem; margin-bottom: 2rem; }
+  .project-detail .overview-grid:not(.overview-grid-vertical) { grid-template-columns: 1fr; gap: 1rem; margin-bottom: 2rem; }
+  .project-detail .overview-grid-vertical { max-width: 100%; margin-bottom: 2rem; grid-template-columns: 1fr; }
   .project-detail .section-overview-title { font-size: 1.75rem; }
 }
 
@@ -575,13 +1033,20 @@ body.project-detail.standalone .hero {
   margin: 0 0 3rem;
 }
 .project-detail .structure-box {
-  background: rgba(15, 23, 42, 0.5);
+  background: unset;
+  background-color: rgba(30, 35, 43, 1);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid #334155;
   border-radius: 1.5rem;
   padding: 2.5rem;
   box-sizing: border-box;
+}
+.project-detail .structure-box .structure-box-diagram {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 2rem;
 }
 .project-detail .structure-grid {
   display: grid;

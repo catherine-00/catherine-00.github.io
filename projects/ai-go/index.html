@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class="project-detail-standalone">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,10 +25,10 @@
             <h1 class="hero-title">AI-GO<span class="hero-title-sub">(아이고)</span></h1>
             <p class="hero-subtitle"><span class="hero-subtitle-line">고령운전자를 위한</span><span class="hero-subtitle-line">AI 기반 도로상황 퀴즈 생성 서비스</span></p>
             <div class="hero-info-grid hero-info-grid-v2">
-              <div class="hero-info-box hero-info-box-v2"><span class="hero-info-label">프로젝트 기간</span><span class="hero-info-value">2024.09 - 2024.12</span></div>
+              <div class="hero-info-box hero-info-box-v2"><span class="hero-info-label">프로젝트 기간</span><span class="hero-info-value">2025.07.23 - 2025.09.11</span></div>
               <div class="hero-info-box hero-info-box-v2"><span class="hero-info-label">공모전 명</span><span class="hero-info-value">인공지능 원천데이터</span></div>
               <div class="hero-info-box hero-info-box-v2"><span class="hero-info-label">팀 구성</span><span class="hero-info-value">5인 팀 프로젝트</span></div>
-              <div class="hero-info-box hero-info-box-highlight hero-info-box-v2"><span class="hero-info-label">본인 역할</span><span class="hero-info-value">Data Scientist</span></div>
+              <div class="hero-info-box hero-info-box-highlight hero-info-box-v2"><span class="hero-info-label">나의 역할</span><span class="hero-info-value">AI Engineer</span></div>
             </div>
             <div class="hero-cta">
               <a href="https://github.com/AI-GO-Project/AI_GO_model" target="_blank" rel="noopener noreferrer" class="btn btn-hero-gh"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>GitHub 보기</a>
@@ -61,116 +61,122 @@
         </div>
       </section>
 
-      <section class="section section-overview section-centered">
+      <nav class="project-category-nav" aria-label="프로젝트 섹션 선택">
+        <div class="project-category-nav-inner">
+          <button type="button" class="project-category-btn is-active" data-category="overview">프로젝트 개요</button>
+          <button type="button" class="project-category-btn" data-category="structure">서비스 흐름</button>
+          <button type="button" class="project-category-btn" data-category="role">나의 역할</button>
+          <span class="category-nav-break" aria-hidden="true"></span>
+          <div class="project-category-nav-row2">
+            <button type="button" class="project-category-btn" data-category="model-detail">모델 설계 상세</button>
+            <button type="button" class="project-category-btn" data-category="data-design">데이터 설계</button>
+            <button type="button" class="project-category-btn" data-category="screens">서비스 화면</button>
+            <button type="button" class="project-category-btn" data-category="performance">성능 평가</button>
+            <button type="button" class="project-category-btn" data-category="challenge">기술적 도전과 해결</button>
+            <button type="button" class="project-category-btn" data-category="results">결과 및 확장성</button>
+            <button type="button" class="project-category-btn" data-category="team">팀원 소개</button>
+            <button type="button" class="project-category-btn" data-category="retro">회고</button>
+            <button type="button" class="project-category-btn" data-category="learn-more">더 알아보기</button>
+          </div>
+        </div>
+      </nav>
+
+      <section class="section section-overview section-centered" id="category-overview" data-category="overview">
         <div class="overview-inner">
           <h2 class="section-overview-title">프로젝트 개요</h2>
-          <p class="section-overview-desc">도로 주행 상황을 담은 영상 데이터를 AI가 분석하여, 실제 운전 중 발생할 수 있는 다양한 교통 시나리오를 텍스트로 설명하고, 이를 기반으로 퀴즈를 자동 생성하는 고령운전자를 위한 교통안전 교육 서비스입니다.</p>
-          <div class="overview-grid">
-            <div class="overview-card overview-card-problem">
-              <div class="overview-card-header">
+          <div class="section-overview-desc-title-row">
+            <div class="overview-card-icon overview-card-icon-car" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17h16v-3H4v3zm1-4 3-3h8l3 3"/><circle cx="6.5" cy="17" r="2"/><circle cx="17.5" cy="17" r="2"/></svg>
+            </div>
+            <h3 class="section-overview-desc-title">AI-Go란?</h3>
+          </div>
+          <div class="section-overview-desc-box">
+            <p class="section-overview-desc">실제 도로 주행 영상을 분석해 다양한 교통 상황을 텍스트로 구조화하고, 이를 바탕으로 상황형 퀴즈와 해설을 자동 생성하여 고령운전자의 법규 이해도와 위험 대응 능력을 체계적으로 향상시키는 교통안전 학습 서비스입니다.</p>
+            <img src="../../ai_go_logo.svg" alt="" class="overview-card-icon-logo overview-card-solution-logo section-overview-desc-box-logo" aria-hidden="true" />
+          </div>
+          <div class="overview-grid overview-grid-vertical">
+            <div class="overview-problem-box">
+              <div class="overview-problem-box-title-row">
                 <div class="overview-card-icon overview-card-icon-problem" aria-hidden="true">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" x2="12" y1="8" y2="12"/><line x1="12" x2="12.01" y1="16" y2="16"/></svg>
                 </div>
-                <h3 class="overview-card-title">🚨 문제 상황</h3>
+                <h3 class="overview-problem-box-title">문제 상황</h3>
               </div>
-              <ul class="overview-list">
-                <li><span class="overview-bullet" aria-hidden="true">•</span><span>고령운전자 교통사고 증가</span></li>
-                <li><span class="overview-bullet" aria-hidden="true">•</span><span>기존 교통안전 교육의 한계 (텍스트 중심)</span></li>
-                <li><span class="overview-bullet" aria-hidden="true">•</span><span>영상 기반 학습 콘텐츠 부족</span></li>
-                <li><span class="overview-bullet" aria-hidden="true">•</span><span>도로교통법과 실제 상황 연결의 어려움</span></li>
-              </ul>
+              <div class="overview-problem-box-content">
+              <div class="overview-problem-grid">
+              <div class="overview-card overview-card-problem">
+                  <ul class="overview-list">
+                    <li><span class="overview-bullet" aria-hidden="true">•</span><span>고령운전자 교통사고 발생 건수 4년간 36.4% 급증, 전체 교통사고의 21.6%를 차지 (2020-2024)</span></li>
+                  </ul>
+                  <img src="../../고령운전자 교통사고 비율.svg" alt="고령운전자 교통사고 비율" class="overview-card-img">
+                </div>
+                <div class="overview-card overview-card-problem">
+                  <ul class="overview-list">
+                    <li><span class="overview-bullet" aria-hidden="true">•</span><span>법규위반 및 교통사고와 높은 상관성을 가지는 위험행동율이 높은 고령 운전자</span></li>
+                  </ul>
+                  <img src="../../고령-일반운전자의 위험운전행동차이.svg" alt="고령-일반운전자의 위험운전행동 차이" class="overview-card-img">
+                </div>
+                <div class="overview-card overview-card-problem">
+                  <ul class="overview-list">
+                    <li><span class="overview-bullet" aria-hidden="true">•</span><span>면허반납제, 자격시험강화는 통제중심의 정책 → 고령자의 이동권 문제와 교육 부재를 해결 못함</span></li>
+                  </ul>
+                  <img src="../../고령운전자 면허 반납률 추이.svg" alt="고령운전자 면허 반납률 추이" class="overview-card-img">
+                </div>
+                <div class="overview-card overview-card-problem">
+                  <ul class="overview-list">
+                    <li><span class="overview-bullet" aria-hidden="true">•</span><span>고령운전자의 사고율 감소를 위해 자진 반납 및 면허 갱신 제도 등이 시행 중이나, 반납률이 낮고 실효성 부족</span></li>
+                  </ul>
+                  <img src="../../고령운전자 인터뷰.svg" alt="고령운전자 인터뷰" class="overview-card-img">
+                </div>
+              </div>
+              </div>
+            </div>
+            <div class="overview-arrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+              <div class="overview-arrow-yellow-box">
+                <div class="overview-arrow-yellow-box-row">
+                  <div class="overview-card-icon overview-card-icon-warning" aria-hidden="true">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg>
+                  </div>
+                  <div class="overview-arrow-yellow-box-text">
+                    운전 중 도로교통법에 맞는 판단력, 대응력을 향상시켜<br>
+                    고령자의 자율성과 안전을 모두 확보하는 <u>교육 중심 솔루션 필요</u>
+                  </div>
+                </div>
+              </div>
+              <svg class="overview-arrow-down" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
             </div>
             <div class="overview-card overview-card-solution">
               <div class="overview-card-header">
                 <div class="overview-card-icon overview-card-icon-solution" aria-hidden="true">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
                 </div>
-                <h3 class="overview-card-title">🎯 우리가 해결한 것</h3>
+                <h3 class="overview-card-title">AI-Go</h3>
               </div>
               <ul class="overview-list">
                 <li><span class="overview-check" aria-hidden="true">✓</span><span>AI가 도로 영상 → 상황 설명 자동 생성</span></li>
                 <li><span class="overview-check" aria-hidden="true">✓</span><span>도로교통법 기반 퀴즈 자동 생성 (RAG)</span></li>
                 <li><span class="overview-check" aria-hidden="true">✓</span><span>사용자 맞춤형 학습 분석 제공</span></li>
                 <li><span class="overview-check" aria-hidden="true">✓</span><span>영상 기반 실전형 교육 콘텐츠 제공</span></li>
+                <li><span class="overview-check overview-check-arrow" aria-hidden="true">→</span><span>고령운전자의 반복 학습을 통해 <br>법규 이해 · 상황 인지 · 안전 대응 능력을 강화시켜 고령운전자 교통사고율 감소 효과</span></li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="section section-features section-structure">
+      <section class="section section-features section-structure" id="category-structure" data-category="structure">
         <div class="features-inner">
-          <h2 class="features-title">시스템 구조 한 눈에 보기</h2>
-          <p class="features-subtitle">🏗 데이터 흐름 중심 아키텍처</p>
+          <h2 class="features-title">서비스 흐름</h2>
           <div class="structure-box">
-            <div class="structure-grid">
-              <div class="structure-card structure-card-orange text-center">
-                <div class="structure-card-icon structure-card-icon-orange" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>
-                </div>
-                <h3 class="structure-card-name">Qwen VL</h3>
-                <p class="structure-card-desc">영상 → 텍스트 변환</p>
-              </div>
-              <div class="structure-card structure-card-purple text-center">
-                <div class="structure-card-icon structure-card-icon-purple" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 18V5"/><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"/><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"/><path d="M18 18a4 4 0 0 0 2-7.464"/><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"/><path d="M6 18a4 4 0 0 1-2-7.464"/><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"/></svg>
-                </div>
-                <h3 class="structure-card-name">GPT-OSS + RAG</h3>
-                <p class="structure-card-desc">법령 기반 문제 생성</p>
-              </div>
-              <div class="structure-card structure-card-blue text-center">
-                <div class="structure-card-icon structure-card-icon-blue" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
-                </div>
-                <h3 class="structure-card-name">MariaDB</h3>
-                <p class="structure-card-desc">사용자 학습 데이터 저장</p>
-              </div>
-              <div class="structure-card structure-card-green text-center">
-                <div class="structure-card-icon structure-card-icon-green" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-                </div>
-                <h3 class="structure-card-name">React + FastAPI</h3>
-                <p class="structure-card-desc">서비스 구현</p>
-              </div>
-            </div>
-            <div class="structure-flow">
-              <div class="structure-flow-item">
-                <div class="structure-flow-box">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="structure-flow-icon" aria-hidden="true"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>
-                </div>
-                <p class="structure-flow-label">도로 영상 분석</p>
-              </div>
-              <div class="structure-flow-arrow" aria-hidden="true"></div>
-              <div class="structure-flow-item">
-                <div class="structure-flow-box">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="structure-flow-icon" aria-hidden="true"><path d="M12 18V5"/><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"/><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"/><path d="M18 18a4 4 0 0 0 2-7.464"/><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"/><path d="M6 18a4 4 0 0 1-2-7.464"/><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"/></svg>
-                </div>
-                <p class="structure-flow-label">멀티모달 처리</p>
-              </div>
-              <div class="structure-flow-arrow" aria-hidden="true"></div>
-              <div class="structure-flow-item">
-                <div class="structure-flow-box">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="structure-flow-icon" aria-hidden="true"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg>
-                </div>
-                <p class="structure-flow-label">RAG 퀴즈 생성</p>
-              </div>
-              <div class="structure-flow-arrow" aria-hidden="true"></div>
-              <div class="structure-flow-item">
-                <div class="structure-flow-box">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="structure-flow-icon" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
-                </div>
-                <p class="structure-flow-label">기간 분석 피드백</p>
-              </div>
-            </div>
+            <img src="../../서비스흐름2.svg" alt="서비스 흐름" class="structure-box-diagram" />
           </div>
         </div>
       </section>
 
-      <section class="section section-architecture section-role">
+      <section class="section section-architecture section-role" id="category-role" data-category="role">
         <div class="role-inner">
           <h2 class="role-title">나의 역할</h2>
-          <p class="role-subtitle">👤 My Contribution</p>
-          <p class="role-badge">Data Scientist</p>
           <div class="role-grid">
             <div class="role-card">
               <div class="role-card-header">
@@ -218,7 +224,7 @@
         </div>
       </section>
 
-      <section class="section section-ai-model section-model-detail">
+      <section class="section section-ai-model section-model-detail" id="category-model-detail" data-category="model-detail">
         <div class="model-detail-inner">
           <h2 class="model-detail-title">모델 설계 상세</h2>
           <p class="model-detail-subtitle">🤖 AI Pipeline</p>
@@ -285,7 +291,7 @@
         </div>
       </section>
 
-      <section class="section section-data-pipeline section-data-design">
+      <section class="section section-data-pipeline section-data-design" id="category-data-design" data-category="data-design">
         <div class="data-design-inner">
           <h2 class="data-design-title">데이터 설계</h2>
           <p class="data-design-subtitle">🗂 DB 설계 구조</p>
@@ -344,7 +350,7 @@
         </div>
       </section>
 
-      <section class="section section-tech section-screens">
+      <section class="section section-tech section-screens" id="category-screens" data-category="screens">
         <div class="screens-inner">
           <h2 class="screens-title">서비스 화면</h2>
           <p class="screens-subtitle">📱 주요 화면</p>
@@ -404,7 +410,7 @@
         </div>
       </section>
 
-      <section class="section section-outcomes-new section-performance">
+      <section class="section section-outcomes-new section-performance" id="category-performance" data-category="performance">
         <div class="performance-inner">
           <h2 class="performance-title">성능 평가</h2>
           <p class="performance-subtitle">📈 Performance</p>
@@ -445,7 +451,7 @@
         </div>
       </section>
 
-      <section class="section section-team-compact section-challenge">
+      <section class="section section-team-compact section-challenge" id="category-challenge" data-category="challenge">
         <div class="challenge-inner">
           <h2 class="challenge-title">기술적 도전과 해결</h2>
           <p class="challenge-subtitle">💡 차별화 포인트</p>
@@ -493,7 +499,7 @@
         </div>
       </section>
 
-      <section class="section section-gallery section-results">
+      <section class="section section-gallery section-results" id="category-results" data-category="results">
         <div class="results-inner">
           <h2 class="results-title">결과 및 확장성</h2>
           <div class="results-grid">
@@ -527,7 +533,7 @@
         </div>
       </section>
 
-      <section class="section section-contact section-team">
+      <section class="section section-contact section-team" id="category-team" data-category="team">
         <div class="team-inner">
           <h2 class="team-title">팀원 소개</h2>
           <div class="team-grid">
@@ -585,7 +591,7 @@
         </div>
       </section>
 
-      <section class="section section-footer-cta section-retro">
+      <section class="section section-footer-cta section-retro" id="category-retro" data-category="retro">
         <div class="retro-inner">
           <h2 class="retro-title">회고</h2>
           <div class="retro-list">
@@ -638,7 +644,7 @@
         </div>
       </section>
 
-      <section class="section section-learn-more">
+      <section class="section section-learn-more" id="category-learn-more" data-category="learn-more">
         <div class="learn-more-inner">
           <h2 class="learn-more-title">더 알아보기</h2>
           <p class="learn-more-desc">GitHub 코드와 상세 문서를 확인하세요</p>
@@ -658,5 +664,27 @@
       </section>
     </div>
   </main>
+  <script>
+    (function() {
+      var nav = document.querySelector('.project-category-nav');
+      if (!nav) return;
+      var btns = nav.querySelectorAll('.project-category-btn');
+      var sections = document.querySelectorAll('.main-content .section[data-category]');
+      function showCategory(category) {
+        btns.forEach(function(btn) {
+          btn.classList.toggle('is-active', btn.getAttribute('data-category') === category);
+        });
+        sections.forEach(function(section) {
+          section.style.display = section.getAttribute('data-category') === category ? 'block' : 'none';
+        });
+      }
+      btns.forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          showCategory(btn.getAttribute('data-category'));
+        });
+      });
+      showCategory('overview');
+    })();
+  </script>
 </body>
 </html>
