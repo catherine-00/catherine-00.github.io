@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="../../css/project-detail.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
   </style>
@@ -28,7 +29,7 @@
               <div class="hero-info-box hero-info-box-v2"><span class="hero-info-label">프로젝트 기간</span><span class="hero-info-value">2025.07.23 - 2025.09.11</span></div>
               <div class="hero-info-box hero-info-box-v2"><span class="hero-info-label">공모전 명</span><span class="hero-info-value">인공지능 원천데이터</span></div>
               <div class="hero-info-box hero-info-box-v2"><span class="hero-info-label">팀 구성</span><span class="hero-info-value">5인 팀 프로젝트</span></div>
-              <div class="hero-info-box hero-info-box-highlight hero-info-box-v2"><span class="hero-info-label">나의 역할</span><span class="hero-info-value">AI Engineer</span></div>
+              <div class="hero-info-box hero-info-box-highlight hero-info-box-v2"><span class="hero-info-label">나의 역할</span><span class="hero-info-value">AI Learning System Architect</span></div>
             </div>
             <div class="hero-cta">
               <a href="https://github.com/AI-GO-Project/AI_GO_model" target="_blank" rel="noopener noreferrer" class="btn btn-hero-gh"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>GitHub 보기</a>
@@ -188,50 +189,271 @@
 
       <section class="section section-architecture section-role" id="category-role" data-category="role">
         <div class="role-inner">
-          <h2 class="role-title">나의 역할</h2>
-          <div class="role-grid">
-            <div class="role-card">
-              <div class="role-card-header">
-                <div class="role-card-icon role-card-icon-orange" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          <div style="opacity: 1; transform: none;">
+            <h2 class="text-4xl font-black mb-4 text-center">나의 역할</h2>
+            <p class="text-center text-slate-400 mb-3">👤 My Contribution</p>
+            <p class="text-center text-blue-400 font-bold text-xl mb-16">AI Learning System Architect</p>
+            <div class="space-y-8">
+              <div class="bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-2xl p-8 hover:border-blue-500/40 transition-all" style="opacity: 1; transform: none;">
+                <div class="flex items-center gap-4 mb-6">
+                  <div class="w-14 h-14 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl flex items-center justify-center shrink-0 shadow-lg text-2xl">🗂</div>
+                  <div>
+                    <h3 class="font-black text-xl text-white text-left">1️⃣ 데이터 설계 및 전처리</h3>
+                    <p class="text-sm text-slate-400 mt-0.5 text-left">공공 데이터 정제 · 흐름 설계 · 카테고리 체계화</p>
+                  </div>
                 </div>
-                <h3 class="role-card-name">1. 위험상황 분류 모델 설계</h3>
-              </div>
-              <ul class="role-list">
-                <li><span class="role-bullet" aria-hidden="true">•</span><span>위험도 산정 기준 정의</span></li>
-                <li><span class="role-bullet" aria-hidden="true">•</span><span>난이도 레벨링 알고리즘 설계</span></li>
-                <li><span class="role-bullet" aria-hidden="true">•</span><span>사용자 풀이 데이터 기반 피드백 로직 설계</span></li>
-              </ul>
-            </div>
-            <div class="role-card">
-              <div class="role-card-header">
-                <div class="role-card-icon role-card-icon-blue" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></svg>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pl-0 md:pl-4">
+                  <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-5">
+                    <p class="text-xs font-bold text-orange-400 uppercase tracking-wider mb-3">📌 공공 데이터 정제</p>
+                    <ul class="space-y-2 text-left">
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-orange-400 mt-0.5 shrink-0">•</span><span>공유마당 / AI-Hub 도로 주행 영상 정제</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-orange-400 mt-0.5 shrink-0">•</span><span>전방(Front View) 영상만 선별 사용</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-orange-400 mt-0.5 shrink-0">•</span><span>트라우마 유발 가능 고강도 사고 영상 필터링</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-orange-400 mt-0.5 shrink-0">•</span><span>난이도 라벨링 (초 / 중 / 고)</span></li>
+                    </ul>
+                  </div>
+                  <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-5">
+                    <p class="text-xs font-bold text-orange-400 uppercase tracking-wider mb-3">📌 데이터 흐름 설계</p>
+                    <ul class="space-y-2">
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-orange-400 mt-0.5 shrink-0">•</span><span>Video → Description → Law Article → Quiz 생성 구조 정의</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-orange-400 mt-0.5 shrink-0">•</span><span>단계별 메타데이터 설계 및 라벨링 체계 구축</span></li>
+                    </ul>
+                    <div class="mt-4 flex items-center gap-1 flex-wrap">
+                      <span class="px-2 py-1 bg-orange-500/20 border border-orange-500/40 rounded text-xs text-orange-300 font-semibold">Video</span>
+                      <span class="text-slate-500 text-xs">→</span>
+                      <span class="px-2 py-1 bg-orange-500/20 border border-orange-500/40 rounded text-xs text-orange-300 font-semibold">Description</span>
+                      <span class="text-slate-500 text-xs">→</span>
+                      <span class="px-2 py-1 bg-orange-500/20 border border-orange-500/40 rounded text-xs text-orange-300 font-semibold">Law Article</span>
+                      <span class="text-slate-500 text-xs">→</span>
+                      <span class="px-2 py-1 bg-orange-500/20 border border-orange-500/40 rounded text-xs text-orange-300 font-semibold">Quiz</span>
+                    </div>
+                  </div>
+                  <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-5">
+                    <p class="text-xs font-bold text-orange-400 uppercase tracking-wider mb-3">📌 도로 상황 카테고리 체계화</p>
+                    <ul class="space-y-1.5 text-left">
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-orange-400 mt-0.5 shrink-0">•</span><span>법규 기반 재분류 체계 설계</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-orange-400 mt-0.5 shrink-0">•</span><span>차선 규칙 / 신호 체계 / 교차로</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-orange-400 mt-0.5 shrink-0">•</span><span>노면 표시 / 공사 구역 / 어린이 보호 구역</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-orange-400 mt-0.5 shrink-0">•</span><span>보행자 보호 / 주차·정차 / 양보 운전</span></li>
+                    </ul>
+                    <div class="mt-3 pt-3 border-t border-slate-700">
+                      <p class="text-xs text-orange-300 font-semibold">👉 학습 분석 중심 카테고리 구조 설계</p>
+                    </div>
+                  </div>
                 </div>
-                <h3 class="role-card-name">2. DB 스키마 및 인덱스 최적화</h3>
               </div>
-              <ul class="role-list">
-                <li><span class="role-bullet" aria-hidden="true">•</span><span>사용자 풀이 로그 테이블 구조 설계</span></li>
-                <li><span class="role-bullet" aria-hidden="true">•</span><span>퀴즈/법령 매핑 테이블 설계</span></li>
-                <li><span class="role-bullet" aria-hidden="true">•</span><span>조회 성능 개선 (Index 설계)</span></li>
-              </ul>
-            </div>
-            <div class="role-card">
-              <div class="role-card-header">
-                <div class="role-card-icon role-card-icon-purple" aria-hidden="true">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+              <div class="bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-2xl p-8 hover:border-purple-500/40 transition-all" style="opacity: 1; transform: none;">
+                <div class="flex items-center gap-4 mb-6">
+                  <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center shrink-0 shadow-lg text-2xl">🎥</div>
+                  <div>
+                    <h3 class="font-black text-xl text-white">2️⃣ VLM 기반 영상 설명 파이프라인</h3>
+                    <p class="text-sm text-slate-400 mt-0.5">모델 실험 · 한계 분석 · 프롬프트 엔지니어링</p>
+                  </div>
                 </div>
-                <h3 class="role-card-name">3. 성능 평가</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5 pl-0 md:pl-4">
+                  <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-5">
+                    <p class="text-xs font-bold text-purple-400 uppercase tracking-wider mb-3">📌 VLM 모델 실험 및 검증</p>
+                    <ul class="space-y-2">
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-purple-400 mt-0.5 shrink-0">•</span><span>다수 모델 비교 테스트</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-purple-400 mt-0.5 shrink-0">•</span><span>Hugging Face 기반 GIT 모델 담당</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-purple-400 mt-0.5 shrink-0">•</span><span>FPS / 프레임 수 조정 → 시간 왜곡 문제 개선</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-purple-400 mt-0.5 shrink-0">•</span><span>주요 장면 균형 샘플링 설계</span></li>
+                    </ul>
+                  </div>
+                  <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-5">
+                    <p class="text-xs font-bold text-purple-400 uppercase tracking-wider mb-3">📌 모델 한계 분석 및 기각</p>
+                    <ul class="space-y-2">
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-purple-400 mt-0.5 shrink-0">•</span><span>객체 인식 중심 서술</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-purple-400 mt-0.5 shrink-0">•</span><span>도로 상황 맥락 이해 부족</span></li>
+                    </ul>
+                    <div class="mt-3 p-3 bg-red-500/10 border border-red-500/30 rounded-lg">
+                      <p class="text-xs text-red-300 font-semibold">→ 서비스 부적합 판단</p>
+                    </div>
+                  </div>
+                  <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-5">
+                    <p class="text-xs font-bold text-purple-400 uppercase tracking-wider mb-3">📌 프롬프트 엔지니어링</p>
+                    <ul class="space-y-2">
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-purple-400 mt-0.5 shrink-0">•</span><span>Few-shot 적용</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-purple-400 mt-0.5 shrink-0">•</span><span>Markdown 구조화</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-purple-400 mt-0.5 shrink-0">•</span><span>반복 문장 / 사실 왜곡 개선</span></li>
+                    </ul>
+                    <div class="mt-3 pt-3 border-t border-slate-700">
+                      <p class="text-xs text-purple-300 font-semibold">👉 시간 순서 기반 상황 설명 안정화</p>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <ul class="role-list">
-                <li><span class="role-bullet" aria-hidden="true">•</span><span>정량 평가 설계</span></li>
-                <li><span class="role-bullet" aria-hidden="true">•</span><span>정성 평가 진행</span></li>
-                <li><span class="role-bullet" aria-hidden="true">•</span><span>서비스 상용화 가능성 검증</span></li>
-              </ul>
+              <div class="bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-2xl p-8 hover:border-cyan-500/40 transition-all" style="opacity: 1; transform: none;">
+                <div class="flex items-center gap-4 mb-6">
+                  <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center shrink-0 shadow-lg text-2xl">🤖</div>
+                  <div>
+                    <h3 class="font-black text-xl text-white">3️⃣ RAG + GPT-OSS 문제 생성 시스템 설계</h3>
+                    <p class="text-sm text-slate-400 mt-0.5">법 조항 기반 RAG · 문제 생성 파이프라인 · 검색 품질 개선</p>
+                  </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 pl-0 md:pl-4">
+                  <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-5">
+                    <p class="text-xs font-bold text-cyan-400 uppercase tracking-wider mb-3">📌 법 조항 기반 RAG 구조</p>
+                    <ul class="space-y-2">
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-cyan-400 mt-0.5 shrink-0">•</span><span>"제XX조" 단위 청킹</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-cyan-400 mt-0.5 shrink-0">•</span><span>FAISS 벡터 DB 구축</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-cyan-400 mt-0.5 shrink-0">•</span><span>생성 시간 단축 (1시간 → 40분)</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-cyan-400 mt-0.5 shrink-0">•</span><span>MMR → Similarity 검색 방식 전환</span></li>
+                    </ul>
+                    <div class="mt-4 bg-slate-900/60 rounded-lg p-3 border border-slate-700">
+                      <p class="text-xs text-slate-400 mb-2">생성 시간 개선</p>
+                      <div class="space-y-1.5">
+                        <div class="flex items-center gap-2">
+                          <span class="text-xs text-slate-400 w-12">이전</span>
+                          <div class="flex-1 h-5 bg-slate-800 rounded overflow-hidden">
+                            <div class="h-full bg-red-500/60 flex items-center px-2" style="width: 100%;"><span class="text-xs text-white font-bold">60분</span></div>
+                          </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                          <span class="text-xs text-cyan-400 w-12">이후</span>
+                          <div class="flex-1 h-5 bg-slate-800 rounded overflow-hidden">
+                            <div class="h-full bg-cyan-500/70 flex items-center px-2" style="width: 67%;"><span class="text-xs text-white font-bold">40분</span></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-5">
+                    <p class="text-xs font-bold text-cyan-400 uppercase tracking-wider mb-3">📌 문제 생성 파이프라인</p>
+                    <ul class="space-y-2">
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-cyan-400 mt-0.5 shrink-0">•</span><span>상황 설명 → 4지선다 생성</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-cyan-400 mt-0.5 shrink-0">•</span><span>법 조항 기반 해설 자동 생성</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-cyan-400 mt-0.5 shrink-0">•</span><span>Ollama GPT-OSS 활용</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-cyan-400 mt-0.5 shrink-0">•</span><span>Temperature 조절 → 정확도/설명력 제어</span></li>
+                    </ul>
+                  </div>
+                  <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-5">
+                    <p class="text-xs font-bold text-cyan-400 uppercase tracking-wider mb-3">📌 검색 품질 개선</p>
+                    <ul class="space-y-2">
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-cyan-400 mt-0.5 shrink-0">•</span><span>FAISS + BM25 앙상블 리트리버</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-cyan-400 mt-0.5 shrink-0">•</span><span>LLM 기반 중요 키워드 추출</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-cyan-400 mt-0.5 shrink-0">•</span><span>연관(꼬리) 문제 검색 로직 구현</span></li>
+                    </ul>
+                    <div class="mt-3 p-3 bg-cyan-500/10 border border-cyan-500/30 rounded-lg">
+                      <p class="text-xs text-cyan-300 font-semibold">유사도 3 : 키워드 7 비율</p>
+                    </div>
+                  </div>
+                  <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-5">
+                    <p class="text-xs font-bold text-cyan-400 uppercase tracking-wider mb-3">📌 프롬프트 안정화</p>
+                    <ul class="space-y-2">
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-cyan-400 mt-0.5 shrink-0">•</span><span>Few-shot + Markdown 구조화</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-cyan-400 mt-0.5 shrink-0">•</span><span>호출 시 인스턴스 재생성</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-cyan-400 mt-0.5 shrink-0">•</span><span>캐싱 문제 해결 → 출력 일관성 확보</span></li>
+                    </ul>
+                    <div class="mt-3 pt-3 border-t border-slate-700">
+                      <p class="text-xs text-cyan-300 font-semibold">👉 법 조항 정합성 중심 문제 생성 시스템 설계</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-2xl p-8 hover:border-green-500/40 transition-all" style="opacity: 1; transform: none;">
+                  <div class="flex items-center gap-4 mb-6">
+                    <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center shrink-0 shadow-lg text-2xl">🗃</div>
+                    <div>
+                      <h3 class="font-black text-lg text-white">4️⃣ MariaDB 기반 DB 설계</h3>
+                      <p class="text-sm text-slate-400 mt-0.5">스키마 설계 · 성능 최적화</p>
+                    </div>
+                  </div>
+                  <div class="space-y-4">
+                    <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-4">
+                      <p class="text-xs font-bold text-green-400 uppercase tracking-wider mb-3">📌 스키마 설계</p>
+                      <div class="flex flex-wrap gap-2 mb-3 text-left">
+                        <span class="px-2 py-1 bg-green-500/15 border border-green-500/30 rounded text-xs text-green-300 font-semibold">User</span>
+                        <span class="px-2 py-1 bg-green-500/15 border border-green-500/30 rounded text-xs text-green-300 font-semibold">Video</span>
+                        <span class="px-2 py-1 bg-green-500/15 border border-green-500/30 rounded text-xs text-green-300 font-semibold">Quiz</span>
+                        <span class="px-2 py-1 bg-green-500/15 border border-green-500/30 rounded text-xs text-green-300 font-semibold">Solve</span>
+                        <span class="px-2 py-1 bg-green-500/15 border border-green-500/30 rounded text-xs text-green-300 font-semibold">Review Note</span>
+                        <span class="px-2 py-1 bg-green-500/15 border border-green-500/30 rounded text-xs text-green-300 font-semibold">Category</span>
+                        <span class="px-2 py-1 bg-green-500/15 border border-green-500/30 rounded text-xs text-green-300 font-semibold">History</span>
+                      </div>
+                      <p class="text-xs text-slate-400">트리거 기반 결과 자동 업데이트 구조</p>
+                    </div>
+                    <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-4">
+                      <p class="text-xs font-bold text-green-400 uppercase tracking-wider mb-3">📌 성능 최적화</p>
+                      <ul class="space-y-1.5">
+                        <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-green-400 mt-0.5 shrink-0">•</span><span>인덱스 설계</span></li>
+                        <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-green-400 mt-0.5 shrink-0">•</span><span>집계 쿼리 구조 개선</span></li>
+                        <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-green-400 mt-0.5 shrink-0">•</span><span>분석 중심 데이터 모델링</span></li>
+                      </ul>
+                    </div>
+                    <div class="p-3 bg-green-500/10 border border-green-500/30 rounded-lg">
+                      <p class="text-xs text-green-300 font-semibold">👉 학습 데이터 확장성 고려한 관계형 구조 설계</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-2xl p-8 hover:border-yellow-500/40 transition-all" style="opacity: 1; transform: none;">
+                  <div class="flex items-center gap-4 mb-6">
+                    <div class="w-14 h-14 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center shrink-0 shadow-lg text-2xl">📊</div>
+                    <div>
+                      <h3 class="font-black text-lg text-white">5️⃣ 사용자 맞춤 학습 분석 로직</h3>
+                      <p class="text-sm text-slate-400 mt-0.5">분석 알고리즘 · 피드백 자동 생성</p>
+                    </div>
+                  </div>
+                  <div class="space-y-4">
+                    <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-4">
+                      <p class="text-xs font-bold text-yellow-400 uppercase tracking-wider mb-3">📌 분석 알고리즘</p>
+                      <ul class="space-y-1.5">
+                        <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-yellow-400 mt-0.5 shrink-0">•</span><span>전체 정답률 계산</span></li>
+                        <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-yellow-400 mt-0.5 shrink-0">•</span><span>카테고리별 강·약점 분석</span></li>
+                        <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-yellow-400 mt-0.5 shrink-0">•</span><span>주차별 개선도 산출</span></li>
+                      </ul>
+                    </div>
+                    <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-4">
+                      <p class="text-xs font-bold text-yellow-400 uppercase tracking-wider mb-3">📌 피드백 자동 생성</p>
+                      <ul class="space-y-1.5">
+                        <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-yellow-400 mt-0.5 shrink-0">•</span><span>분석 결과 → GPT-OSS 텍스트 생성</span></li>
+                        <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-yellow-400 mt-0.5 shrink-0">•</span><span>사용자 수준별 학습 방향 제시</span></li>
+                      </ul>
+                    </div>
+                    <div class="p-3 bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
+                      <p class="text-xs text-yellow-300 font-semibold">👉 행동 유도형 데이터 기반 피드백 시스템</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-2xl p-8 hover:border-pink-500/40 transition-all" style="opacity: 1; transform: none;">
+                  <div class="flex items-center gap-4 mb-6">
+                    <div class="w-14 h-14 bg-gradient-to-br from-pink-500 to-rose-500 rounded-xl flex items-center justify-center shrink-0 shadow-lg text-2xl">🎨</div>
+                    <div>
+                      <h3 class="font-black text-lg text-white">6️⃣ 웹 서비스 UI/UX 설계</h3>
+                      <p class="text-sm text-slate-400 mt-0.5">Figma · IA 설계 · 퀴즈 UX</p>
+                    </div>
+                  </div>
+                  <ul class="space-y-2.5 text-left">
+                    <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-pink-400 mt-0.5 shrink-0">•</span><span>Figma 기반 화면 설계</span></li>
+                    <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-pink-400 mt-0.5 shrink-0">•</span><span>사용자 흐름 중심 IA 설계</span></li>
+                    <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-pink-400 mt-0.5 shrink-0">•</span><span>Cursor 활용 코드 서빙</span></li>
+                    <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-pink-400 mt-0.5 shrink-0">•</span><span>영상 기반 퀴즈 UX 최적화</span></li>
+                  </ul>
+                </div>
+                <div class="bg-slate-900/60 backdrop-blur-xl border border-slate-800 rounded-2xl p-8 hover:border-slate-500/60 transition-all" style="opacity: 1; transform: none;">
+                  <div class="flex items-center gap-4 mb-6">
+                    <div class="w-14 h-14 bg-gradient-to-br from-slate-500 to-slate-600 rounded-xl flex items-center justify-center shrink-0 shadow-lg text-2xl">📝</div>
+                    <div>
+                      <h3 class="font-black text-lg text-white">7️⃣ 문서화 및 시스템 정리</h3>
+                      <p class="text-sm text-slate-400 mt-0.5">ERD · 요구사항 · 시연 영상</p>
+                    </div>
+                  </div>
+                  <ul class="space-y-2.5">
+                    <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-slate-400 mt-0.5 shrink-0">•</span><span>비즈니스 로직 정의</span></li>
+                    <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-slate-400 mt-0.5 shrink-0">•</span><span>ERD 설계</span></li>
+                    <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-slate-400 mt-0.5 shrink-0">•</span><span>요구사항 정의서</span></li>
+                    <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-slate-400 mt-0.5 shrink-0">•</span><span>모델 정의서</span></li>
+                    <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-slate-400 mt-0.5 shrink-0">•</span><span>기능 시연 영상 제작</span></li>
+                  </ul>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="role-banner">
-            <p class="role-banner-text">💡 README에는 팀 단위로 작성되어 있지만, <span class="role-banner-highlight">포트폴리오에서는 "내가 한 것만 분리"</span>하여 명확히 제시</p>
+            <div class="mt-12 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 border border-blue-500/40 rounded-2xl p-6 text-center">
+              <p class="text-lg font-semibold text-blue-200">💡 README에는 팀 단위로 작성되어 있지만, <span class="text-cyan-300 font-bold">포트폴리오에서는 "내가 한 것만 분리"</span>하여 명확히 제시</p>
+            </div>
           </div>
         </div>
       </section>
