@@ -481,18 +481,57 @@
                       <p class="text-sm text-slate-400 mt-0.5 text-left">ERD · 요구사항 · 시연 영상</p>
                     </div>
                   </div>
-                  <ul class="w-[400px] space-y-2.5 text-left bg-slate-800/60 border border-slate-700 rounded-xl p-4">
-                    <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-slate-400 mt-0.5 shrink-0">•</span><span>ERD 설계</span></li>
-                    <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-slate-400 mt-0.5 shrink-0">•</span><span>요구사항 정의서</span></li>
-                    <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-slate-400 mt-0.5 shrink-0">•</span><span>모델 정의서</span></li>
-                    <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-slate-400 mt-0.5 shrink-0">•</span><span>기능 시연 영상 제작</span></li>
-                  </ul>
+                  <div class="flex flex-col flex-nowrap items-center justify-start gap-4">
+                    <ul class="w-[500px] shrink-0 space-y-2.5 text-left bg-slate-800/60 border border-slate-700 rounded-xl p-4">
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-slate-400 mt-0.5 shrink-0">•</span><span>ERD 설계</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-slate-400 mt-0.5 shrink-0">•</span><span>요구사항 정의서</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-slate-400 mt-0.5 shrink-0">•</span><span>모델 정의서</span></li>
+                      <li class="flex items-start gap-2 text-slate-300 text-sm"><span class="text-slate-400 mt-0.5 shrink-0">•</span><span>기능 시연 영상 제작</span></li>
+                    </ul>
+                    <div class="flex items-center gap-2 shrink-0 w-full max-w-full aspect-[3/2]">
+                      <button type="button" id="doc-viewer-prev" class="doc-viewer-arrow w-10 h-10 flex items-center justify-center rounded-full bg-slate-700/80 border border-slate-600 text-slate-200 hover:bg-slate-600/80 hover:border-slate-500 transition-colors" aria-label="이전 문서">&lt;</button>
+                      <div id="doc-viewer" class="flex-1 min-w-0 h-full overflow-hidden rounded-xl border border-slate-700 bg-slate-800/60">
+                        <div id="doc-viewer-track" class="flex h-full transition-transform duration-300 ease-out">
+                          <div class="doc-viewer-slide shrink-0 w-full h-full min-h-[280px] flex items-center justify-center p-4">
+                            <img src="../../AI_Go_ERD.png" alt="AI-Go ERD" class="max-w-full max-h-full w-full h-full object-contain rounded-lg border border-slate-600" />
+                          </div>
+                          <div class="doc-viewer-slide shrink-0 w-full h-full min-h-[280px] flex items-center justify-center p-4">
+                            <div class="relative w-full h-full">
+                              <img src="../../요구사항 정의서.png" alt="요구사항 정의서" class="max-w-full max-h-full w-full h-full object-contain rounded-lg border border-slate-600" />
+                              <a href="../../요구사항 정의서.pdf" download="요구사항 정의서.pdf" class="absolute bottom-4 right-4 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900/80 border border-slate-600 text-xs text-slate-100 hover:bg-slate-800 hover:border-slate-400 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                <span>요구사항 정의서 다운로드</span>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="doc-viewer-slide shrink-0 w-full h-full min-h-[280px] flex items-center justify-center p-4">
+                            <div class="relative w-full h-full">
+                              <img src="../../모델 정의서.png" alt="모델 정의서" class="max-w-full max-h-full w-full h-full object-contain rounded-lg border border-slate-600" />
+                              <a href="../../모델 정의서.pdf" download="모델 정의서.pdf" class="absolute bottom-4 right-4 inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-900/80 border border-slate-600 text-xs text-slate-100 hover:bg-slate-800 hover:border-slate-400 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                                <span>모델 정의서 다운로드</span>
+                              </a>
+                            </div>
+                          </div>
+                          <div class="doc-viewer-slide shrink-0 w-full h-full min-h-[280px] flex items-center justify-center p-4 bg-slate-900/40">
+                            <div class="w-full h-full max-w-full max-h-full rounded-lg overflow-hidden border border-slate-600">
+                              <iframe id="doc-viewer-yt" class="w-full h-full" src="https://www.youtube.com/embed/eVU0ypHKVEA?rel=0" title="기능 시연 영상" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                          </div>
+                          <div class="doc-viewer-slide shrink-0 w-full h-full min-h-[280px] flex items-center justify-center p-4 bg-slate-900/40">
+                            <div class="w-full h-full max-w-full max-h-full rounded-lg overflow-hidden border border-slate-600">
+                              <iframe id="doc-viewer-yt2" class="w-full h-full" src="https://www.youtube.com/embed/9TFtPIqo8ic?rel=0" title="동영상" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <button type="button" id="doc-viewer-next" class="doc-viewer-arrow w-10 h-10 flex items-center justify-center rounded-full bg-slate-700/80 border border-slate-600 text-slate-200 hover:bg-slate-600/80 hover:border-slate-500 transition-colors" aria-label="다음 문서">&gt;</button>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-            <div class="mt-12 bg-gradient-to-r from-blue-600/20 to-cyan-600/20 border border-blue-500/40 rounded-2xl p-6 text-center">
-              <p class="text-lg font-semibold text-blue-200">💡 README에는 팀 단위로 작성되어 있지만, <span class="text-cyan-300 font-bold">포트폴리오에서는 "내가 한 것만 분리"</span>하여 명확히 제시</p>
-            </div>
+
           </div>
         </div>
       </section>
@@ -957,6 +996,27 @@
         });
       });
       showCategory('overview');
+    })();
+
+    (function() {
+      var track = document.getElementById('doc-viewer-track');
+      var prevBtn = document.getElementById('doc-viewer-prev');
+      var nextBtn = document.getElementById('doc-viewer-next');
+      if (!track || !prevBtn || !nextBtn) return;
+      var total = track.querySelectorAll('.doc-viewer-slide').length;
+      var current = 0;
+      function updateSlide() {
+        track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      }
+      prevBtn.addEventListener('click', function() {
+        current = (current - 1 + total) % total;
+        updateSlide();
+      });
+      nextBtn.addEventListener('click', function() {
+        current = (current + 1) % total;
+        updateSlide();
+      });
+      updateSlide();
     })();
   </script>
 </body>
