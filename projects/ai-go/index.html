@@ -726,18 +726,7 @@
               <h3 class="model-detail-block-title">5. 연관문제 생성</h3>
               <p class="model-detail-block-goal">LLM(GPT-OSS) + RAG(앙상블 리트리버)로 운전면허 연관 문제 검색</p>
               <div class="model-detail-block-content">
-                <div class="model-detail-model-badge model-detail-model-badge-yellow">LLM + FAISS + BM25 앙상블</div>
-                <p class="model-detail-block-desc"><strong>LLM:</strong> 도로상황 설명 텍스트에서 중요 키워드 추출 (예: 우회전 무정지, 교차로 충돌, 비보호 좌회전)</p>
-                <p class="model-detail-block-desc">참고 문서: 한국도로교통공단 운전면허 문제은행</p>
-                <div class="model-detail-problem-box model-detail-fullwidth">
-                  <p><strong>기존 방식의 한계:</strong> 도로상황 설명 텍스트 자체로 문서 검색 시도 → 중요 키워드 추출 X. 유사도 기반 검색만으로는 의미가 비슷한 단어가 많아 중요 키워드가 포함된 문제 검색 불가.</p>
-                </div>
-                <p class="model-detail-solution-text">→ <strong>LLM 추가:</strong> 상황 설명 텍스트 → 중요 키워드 추출. <strong>FAISS + BM25 앙상블 리트리버</strong> 사용 (정확한 "단어"가 포함된 문제 검색 필요 → 유사도(3) + 키워드(7) 앙상블 리트리버)</p>
-                <div class="model-detail-example-box">
-                  <h4 class="model-detail-example-title">예시: 비보호좌회전 관련 문제 (246번)</h4>
-                  <p class="model-detail-quiz-q">비보호좌회전 교차로에서 좌회전하고자 할 때 설명으로 맞는 2가지는?</p>
-                  <p class="model-detail-quiz-answer">정답: ①, ③ | 해설: 비보호좌회전은 비보호 좌회전 안전표지가 있고, 차량신호가 녹색신호이고, 마주 오는 차량이 없을 때 좌회전할 수 있다. 녹색등화에서 비보호좌회전 때 사고가 발생하면 2010.8.24. 이후 안전운전의무 위반으로 처벌된다.</p>
-                </div>
+                <img src="../../images/꼬리문제.svg" alt="연관문제 생성: LLM + FAISS + BM25 앙상블" class="model-detail-ps-img" />
               </div>
             </div>
 
@@ -746,16 +735,7 @@
               <h3 class="model-detail-block-title">6. 사용자 맞춤 피드백</h3>
               <p class="model-detail-block-goal">LLM(GPT-OSS)으로 사용자 문제 풀이 정보를 분석해 맞춤형 피드백 제공</p>
               <div class="model-detail-block-content">
-                <div class="model-detail-io-grid">
-                  <div class="model-detail-io-box">
-                    <h4 class="model-detail-io-title">INPUT: 사용자 문제 풀이 정보</h4>
-                    <p>사용자명, 총 문제 수/정답 수, 정답률, 강점 카테고리(도로 신호, 보행자 보호), 약점 카테고리(공사 구역, 노면 표시, 양보 운전), 주차 개선도(+/-) 등</p>
-                  </div>
-                  <div class="model-detail-io-box">
-                    <h4 class="model-detail-io-title">OUTPUT: 사용자 맞춤 피드백</h4>
-                    <p>강점 분야 정리, 약점 보완 필요 항목, 개선된 항목(예: 공사 구역 75%p 상승, 양보 운전 87.5%p 상승), 노면 표시는 시각적 인지 훈련 권고, 다음 주 학습 우선순위 제안 등</p>
-                  </div>
-                </div>
+                <img src="../../images/사용자 맞춤 피드백.svg" alt="사용자 맞춤 피드백: INPUT 사용자 문제 풀이 정보 → OUTPUT 맞춤 피드백" class="model-detail-ps-img" />
               </div>
             </div>
           </div>
