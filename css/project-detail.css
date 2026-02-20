@@ -1668,6 +1668,63 @@ body.project-detail.standalone .project-category-nav {
   margin: 0;
   line-height: 1.5;
 }
+
+/* 비디오 생성: 원본 → 변환 결과 시각 자료 */
+.project-detail .model-detail-video-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin: 1.25rem 0 1.5rem;
+  flex-wrap: wrap;
+}
+.project-detail .model-detail-video-figure {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  max-width: 320px;
+}
+.project-detail .model-detail-video-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.2);
+}
+.project-detail .model-detail-video-gif {
+  object-fit: cover;
+}
+.project-detail .model-detail-video-caption {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  text-align: center;
+  margin-top: 0.5rem;
+}
+.project-detail .model-detail-video-arrow {
+  flex-shrink: 0;
+  color: #60a5fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.project-detail .model-detail-video-arrow svg {
+  width: 28px;
+  height: 28px;
+}
+@media (max-width: 768px) {
+  .project-detail .model-detail-video-flow {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .project-detail .model-detail-video-figure {
+    max-width: 100%;
+  }
+  .project-detail .model-detail-video-arrow {
+    transform: rotate(90deg);
+  }
+}
+
 .project-detail .model-detail-ps-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
