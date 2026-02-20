@@ -669,22 +669,28 @@
                     <p class="model-detail-solution-text">→ 자연스러운 문장 구조 + 사실 중심의 묘사 가능</p>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <!-- 3. Qwen vs PLLaVA 비교 -->
-            <div class="model-detail-block model-detail-block-compare">
-              <h3 class="model-detail-block-title">3. Qwen vs PLLaVA 비교</h3>
-              <p class="model-detail-block-goal">대시캠 영상에서 도로 상황 설명 정확도 비교</p>
-              <div class="model-detail-block-content">
-                <div class="model-detail-compare-grid">
-                  <div class="model-detail-compare-col">
-                    <h4 class="model-detail-compare-label model-detail-compare-wrong">PLLaVA 출력 결과</h4>
-                    <p class="model-detail-compare-desc">잘못된 정보 + 도로상황과 관련 없는 스크립트 생성</p>
+                <!-- 3. Qwen vs PLLaVA 비교 (영상 설명 추출 블록 내) -->
+                <div class="model-detail-block model-detail-block-compare model-detail-nested-compare">
+                  <h3 class="model-detail-block-title">3. VLM 모델 비교</h3>
+                  <div class="model-detail-vlm-select">
+                    <p class="model-detail-vlm-label"><strong>VLM 모델 후보</strong> KoLLaVA, GIT, Honeybee, Kanana, PLLaVA, Qwen</p>
+                    <p class="model-detail-vlm-label"><strong>최종 선정</strong> Qwen2.5-VL-3B-Instruct</p>
                   </div>
-                  <div class="model-detail-compare-col">
-                    <h4 class="model-detail-compare-label model-detail-compare-right">Qwen 출력 결과</h4>
-                    <p class="model-detail-compare-desc">도로의 노란색 경계선, 속도 제한 표지판(30), 건설 구역·교통 콘, 주차된 픽업트럭 등 영상과 일치하는 정확한 상황 묘사. 중요한 장면이 시간 순서대로 균형 있게 기술됨.</p>
+                  <p class="model-detail-block-goal">영상 → 도로 상황 설명 정확도 비교 (Qwen Vs PLLaVA)</p>
+                  <div class="model-detail-block-content">
+                    <div class="model-detail-compare-grid">
+                      <figure class="model-detail-compare-figure">
+                        <img src="../../images/qwen_vs_pllava.svg" alt="Qwen vs PLLaVA 도로 상황 설명 비교" class="model-detail-compare-img" />
+                      </figure>
+                      <div class="model-detail-compare-col">
+                        <h4 class="model-detail-compare-label model-detail-compare-wrong">PLLaVA 출력 결과</h4>
+                        <p class="model-detail-compare-desc">잘못된 정보 + 도로상황과 관련 없는 스크립트 생성</p>
+                      </div>
+                      <div class="model-detail-compare-col">
+                        <h4 class="model-detail-compare-label model-detail-compare-right">Qwen 출력 결과</h4>
+                        <p class="model-detail-compare-desc">도로의 노란색 경계선, 속도 제한 표지판(30), 건설 구역·교통 콘, 주차된 픽업트럭 등 영상과 일치하는 정확한 상황 묘사. 중요한 장면이 시간 순서대로 균형 있게 기술됨.</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
