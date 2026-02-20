@@ -701,43 +701,22 @@
               <h3 class="model-detail-block-title">4. 영상 관련 문제 생성</h3>
               <p class="model-detail-block-goal">도로상황 설명 텍스트 기반으로 <strong>객관식 문제 + 실제 법 조항 기반 해설</strong> 생성</p>
               <div class="model-detail-block-content">
-                <div class="model-detail-model-badge model-detail-model-badge-blue">RAG + GPT-OSS(Ollama)</div>
-                <p class="model-detail-block-desc">도로교통법 문서 벡터화 → FAISS 법 조항 검색 → 법 조항 기반 Ollama GPT-OSS LLM으로 객관식 문제 생성</p>
-                <div class="model-detail-ps-grid">
-                  <div class="model-detail-ps-box">
-                    <h4 class="model-detail-ps-title">RAG</h4>
-                    <div class="model-detail-problem-box">
-                      <p><strong>문제:</strong> 도로상황과 관련 없는 법 조항을 참고하는 문제 발생</p>
-                    </div>
-                    <p class="model-detail-arrow-desc">↓ 문서 청킹 단위: '제XX조' 단위 벡터화, 유사도 검색 방식 mmr → similarity</p>
-                    <p class="model-detail-solution-text">→ 영상과 관련된 정확한 법 조항 안정적으로 추출 가능</p>
-                  </div>
-                  <div class="model-detail-ps-box">
-                    <h4 class="model-detail-ps-title">LLM</h4>
-                    <div class="model-detail-problem-box">
-                      <p><strong>문제:</strong> 프롬프트 캐싱으로 인해 GPT-OSS 호출할 때마다 답변 품질의 편차 발생</p>
-                    </div>
-                    <p class="model-detail-arrow-desc">↓ 매 호출마다 새로운 인스턴스 생성</p>
-                    <p class="model-detail-solution-text">→ 독립적인 상태 유지, 프롬프트에 기반한 안정적 답변 제공</p>
+                <div class="model-detail-flow-badge-row">
+                  <div class="model-detail-model-badge model-detail-model-badge-blue">RAG + GPT-OSS (Ollama)</div>
+                  <div class="model-detail-flow-summary">
+                    <p class="model-detail-block-desc">도로교통법 문서 벡터화 → FAISS 법 조항 검색</p>
+                    <p class="model-detail-block-desc">법 조항 기반 Ollama의 GPT-OSS LLM 활용해 객관식 문제 생성</p>
                   </div>
                 </div>
-                <div class="model-detail-example-box">
-                  <h4 class="model-detail-example-title">예시: 영상 관련 문제</h4>
-                  <p class="model-detail-quiz-q">해당 영상에서 충돌 방지 책임을 지는 운전자를 올바르게 기술한 것은?</p>
-                  <ul class="model-detail-quiz-options">
-                    <li>A. 검은색 세단이 다른 차와 충돌해도 운전자의 책임이 있다.</li>
-                    <li>B. 우회전 중인 운전자 차량이 검은색 세단이 진입한 차선과 교차하는 경로를 진행하면, 운전자 차량이 충돌 방지 책임을 진다. <strong class="model-detail-answer">정답</strong></li>
-                    <li>C. 검은색 세단이 교차로에 진입한 경우, 우회전 중인 운전자 차량은 선행권이 없으므로 검은색 세단을 피해 차선을 변경한 후 주행한다.</li>
-                    <li>D. 우회전 중인 운전자 차량은 교차로에서 우선권이 없으므로 검은색 세단과 충돌해도 책임이 없다.</li>
-                  </ul>
+                <div class="model-detail-ps-grid model-detail-ps-grid-figure">
+                  <figure class="model-detail-ps-figure">
+                    <img src="../../images/rag_llm.svg" alt="RAG·LLM: 도로상황 관련 법 조항 추출, 매 호출마다 새 인스턴스로 안정적 답변" class="model-detail-ps-img" />
+                  </figure>
                 </div>
-                <div class="model-detail-example-box model-detail-commentary">
-                  <h4 class="model-detail-example-title">OUTPUT: 실제 법 조항 인용한 해설</h4>
-                  <ul class="model-detail-commentary-list">
-                    <li><strong>정답 B:</strong> 도로교통법 시행규칙에 따르면, 차량 신호등이 적색일 때는 반드시 일시정지 후 우회전해야 하며, …</li>
-                    <li><strong>오답 C:</strong> 도로교통법 제25조 제1항 – 모든 차의 운전자는 교차로에서 우회전하려는 경우에는 미리 도로의 우측 가장자리를 서행하면서 우회전하여야 한다. …</li>
-                    <li><strong>오답 D:</strong> 우선권 유무와 관계없이 도로교통법상 운전자는 충돌 방지를 위한 주의의무가 있습니다. 도로교통법 제25조 제1항 인용 …</li>
-                  </ul>
+                <div class="model-detail-output-with-figure model-detail-output-figure-only">
+                  <figure class="model-detail-output-figure">
+                    <img src="../../images/문제해설.svg" alt="영상 관련 문제 및 실제 법 조항 인용한 해설" class="model-detail-output-img" />
+                  </figure>
                 </div>
               </div>
             </div>
