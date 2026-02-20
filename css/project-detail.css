@@ -1611,6 +1611,10 @@ body.project-detail.standalone .project-category-nav {
   padding-bottom: 0.5rem;
   border-bottom: 1px solid var(--border);
 }
+.project-detail .model-detail-block-title-underline {
+  border-bottom-color: #3b82f6;
+  border-bottom-width: 2px;
+}
 .project-detail .model-detail-block-goal {
   font-size: 1rem;
   color: var(--text-muted);
@@ -1725,6 +1729,32 @@ body.project-detail.standalone .project-category-nav {
   }
 }
 
+/* 영상 설명 추출: Qwen 모델 소개 행 */
+.project-detail .model-detail-qwen-intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+.project-detail .model-detail-qwen-badge {
+  flex-shrink: 0;
+  background: rgba(59, 130, 246, 0.2);
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  color: #93c5fd;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+.project-detail .model-detail-qwen-desc {
+  font-size: 0.9375rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+  flex: 1;
+  min-width: 200px;
+}
 .project-detail .model-detail-ps-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -1735,6 +1765,11 @@ body.project-detail.standalone .project-category-nav {
   background: rgba(0, 0, 0, 0.2);
   border-radius: 0.75rem;
   padding: 1rem;
+}
+.project-detail .model-detail-ps-card {
+  background: rgba(71, 85, 105, 0.25);
+  border: 1px solid rgba(100, 116, 139, 0.4);
+  padding: 1.25rem;
 }
 .project-detail .model-detail-ps-title {
   font-size: 1rem;
@@ -1755,6 +1790,21 @@ body.project-detail.standalone .project-category-nav {
   margin: 0;
   line-height: 1.5;
 }
+.project-detail .model-detail-problem-box p + p {
+  margin-top: 0.25rem;
+}
+.project-detail .model-detail-ps-arrow {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.75rem;
+  margin: 0.25rem 0;
+}
+.project-detail .model-detail-ps-solution-label {
+  font-size: 0.875rem;
+  color: #cbd5e1;
+  margin: 0 0 0.15rem;
+  line-height: 1.4;
+}
 .project-detail .model-detail-arrow-desc {
   font-size: 0.8125rem;
   color: #94a3b8;
@@ -1763,7 +1813,7 @@ body.project-detail.standalone .project-category-nav {
 .project-detail .model-detail-solution-text {
   font-size: 0.875rem;
   color: #86efac;
-  margin: 0;
+  margin: 0.5rem 0 0;
   line-height: 1.5;
 }
 .project-detail .model-detail-problem-box.model-detail-fullwidth {

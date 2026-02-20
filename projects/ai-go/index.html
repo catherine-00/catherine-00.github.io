@@ -639,26 +639,33 @@
 
             <!-- 2. 영상 설명 추출 (Qwen2.5-VL) -->
             <div class="model-detail-block model-detail-block-orange">
-              <h3 class="model-detail-block-title">2. 영상 설명 추출</h3>
-              <p class="model-detail-block-goal">LTX-Video, AI-Hub 도로주행 영상으로부터 <strong>도로상황 설명 텍스트</strong> 생성</p>
+              <h3 class="model-detail-block-title model-detail-block-title-underline">2. 영상 설명 추출</h3>
+              <p class="model-detail-block-goal">LTX-Video, AI-Hub 도로주행 영상으로부터 도로상황 설명 텍스트 생성</p>
               <div class="model-detail-block-content">
-                <div class="model-detail-model-badge model-detail-model-badge-orange">Qwen2.5-VL-3B-Instruct</div>
-                <p class="model-detail-block-desc">Qwen 시리즈의 비전-언어 모델(VLM), 객체 인식 및 영상 이벤트 탐지에 특화</p>
+                <div class="model-detail-qwen-intro">
+                  <div class="model-detail-qwen-badge">Qwen2.5-VL-3B-Instruct</div>
+                  <p class="model-detail-qwen-desc">Qwen 시리즈의 비전-언어 모델(Vision-Language Model, VLM)<br>객체 인식 및 영상 이벤트 탐지 특화</p>
+                </div>
                 <div class="model-detail-ps-grid">
-                  <div class="model-detail-ps-box">
+                  <div class="model-detail-ps-box model-detail-ps-card">
                     <h4 class="model-detail-ps-title">모델 설정</h4>
                     <div class="model-detail-problem-box">
-                      <p><strong>문제:</strong> 도로주행 영상의 찰나의 이벤트·전체 주행 흐름의 시간 순서 파악 정확도 낮음</p>
+                      <p>도로주행 영상의 찰나의 이벤트</p>
+                      <p>전체 주행 흐름의 시간 순서 파악 정확도 낮음</p>
                     </div>
-                    <p class="model-detail-arrow-desc">↓ 초당 프레임 수(FPS) / 영상 프레임 수 조정</p>
-                    <p class="model-detail-solution-text">→ 영상의 중요한 장면들이 시간 순서대로 균형 있게 샘플링되도록 조정</p>
+                    <div class="model-detail-ps-arrow" aria-hidden="true">▼</div>
+                    <p class="model-detail-ps-solution-label">초당 프레임 수(FPS) / 영상 프레임 수 조정</p>
+                    <p class="model-detail-solution-text">→ 영상의 중요한 장면들이 시간 순서대로 균형 있게 샘플링 되도록 조정</p>
                   </div>
-                  <div class="model-detail-ps-box">
+                  <div class="model-detail-ps-box model-detail-ps-card">
                     <h4 class="model-detail-ps-title">프롬프트 엔지니어링</h4>
                     <div class="model-detail-problem-box">
-                      <p><strong>문제:</strong> 비슷한 문장 반복 / 잘못된 정보가 포함된 도로상황 텍스트 생성</p>
+                      <p>비슷한 문장 반복 / 잘못된 정보 포함한</p>
+                      <p>도로상황 텍스트 생성</p>
                     </div>
-                    <p class="model-detail-arrow-desc">↓ Few-shot 프롬프팅 적용, 마크다운 기법 활용</p>
+                    <div class="model-detail-ps-arrow" aria-hidden="true">▼</div>
+                    <p class="model-detail-ps-solution-label">Few-shot 프롬프팅 적용</p>
+                    <p class="model-detail-ps-solution-label">마크다운 기법 활용</p>
                     <p class="model-detail-solution-text">→ 자연스러운 문장 구조 + 사실 중심의 묘사 가능</p>
                   </div>
                 </div>
