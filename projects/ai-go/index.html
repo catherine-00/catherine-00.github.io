@@ -597,8 +597,162 @@
               </div>
             </div>
           </div>
+
           <div class="model-detail-banner">
-            <p class="model-detail-banner-text">💡 "RAG 구조를 왜 선택했는지" 반드시 설명: <br><span class="model-detail-banner-desc">실시간으로 변경되는 도로교통법을 반영하고, 법령 기반 정확한 퀴즈 생성을 위해 RAG(Retrieval-Augmented Generation) 방식 채택</span></p>
+            <p class="model-detail-banner-text">💡 RAG 구조 선택 이유 <br><span class="model-detail-banner-desc">실시간으로 변경되는 도로교통법을 반영하고, 법령 기반 정확한 퀴즈 생성을 위해 RAG(Retrieval-Augmented Generation) 방식 채택</span></p>
+          </div>
+
+          <!-- 상세 설명 블록 -->
+          <div class="model-detail-blocks">
+            <!-- 1. 비디오 생성 (LTX-Video) -->
+            <div class="model-detail-block model-detail-block-purple">
+              <h3 class="model-detail-block-title">1. 비디오 생성</h3>
+              <p class="model-detail-block-goal">공유마당 자율주행 원천데이터(이미지)를 기반으로 일상적 주행 상황의 비디오 생성</p>
+              <div class="model-detail-block-content">
+                <div class="model-detail-model-badge">LTX-Video</div>
+                <p class="model-detail-block-desc">Lightricks의 텍스트와 이미지를 입력으로 받아 실시간 고품질 비디오를 생성하는 모델</p>
+                <div class="model-detail-highlight-grid">
+                  <div class="model-detail-highlight-box">
+                    <h4 class="model-detail-highlight-title">퀴즈 학습의 몰입감과 실제성 확보</h4>
+                    <p>이미지 기반 문제는 상황의 흐름, 동적 판단, 돌발 요소의 인지 타이밍을 제공하기 어려움 → <strong>영상 기반 문제를 출제해야 운전자에게 실제 도로에 가까운 학습 경험 제공 가능</strong></p>
+                  </div>
+                  <div class="model-detail-highlight-box">
+                    <h4 class="model-detail-highlight-title">이미지 데이터의 활용성 극대화</h4>
+                    <p>공개된 도로 주행 관련 데이터는 대부분 이미지 형태(공유마당 데이터 포함) → <strong>기존 데이터를 동적인 영상 콘텐츠로 확장함으로써 데이터 공백을 메울 수 있음</strong></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. 영상 설명 추출 (Qwen2.5-VL) -->
+            <div class="model-detail-block model-detail-block-orange">
+              <h3 class="model-detail-block-title">2. 영상 설명 추출</h3>
+              <p class="model-detail-block-goal">LTX-Video, AI-Hub 도로주행 영상으로부터 <strong>도로상황 설명 텍스트</strong> 생성</p>
+              <div class="model-detail-block-content">
+                <div class="model-detail-model-badge model-detail-model-badge-orange">Qwen2.5-VL-3B-Instruct</div>
+                <p class="model-detail-block-desc">Qwen 시리즈의 비전-언어 모델(VLM), 객체 인식 및 영상 이벤트 탐지에 특화</p>
+                <div class="model-detail-ps-grid">
+                  <div class="model-detail-ps-box">
+                    <h4 class="model-detail-ps-title">모델 설정</h4>
+                    <div class="model-detail-problem-box">
+                      <p><strong>문제:</strong> 도로주행 영상의 찰나의 이벤트·전체 주행 흐름의 시간 순서 파악 정확도 낮음</p>
+                    </div>
+                    <p class="model-detail-arrow-desc">↓ 초당 프레임 수(FPS) / 영상 프레임 수 조정</p>
+                    <p class="model-detail-solution-text">→ 영상의 중요한 장면들이 시간 순서대로 균형 있게 샘플링되도록 조정</p>
+                  </div>
+                  <div class="model-detail-ps-box">
+                    <h4 class="model-detail-ps-title">프롬프트 엔지니어링</h4>
+                    <div class="model-detail-problem-box">
+                      <p><strong>문제:</strong> 비슷한 문장 반복 / 잘못된 정보가 포함된 도로상황 텍스트 생성</p>
+                    </div>
+                    <p class="model-detail-arrow-desc">↓ Few-shot 프롬프팅 적용, 마크다운 기법 활용</p>
+                    <p class="model-detail-solution-text">→ 자연스러운 문장 구조 + 사실 중심의 묘사 가능</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. Qwen vs PLLaVA 비교 -->
+            <div class="model-detail-block model-detail-block-compare">
+              <h3 class="model-detail-block-title">3. Qwen vs PLLaVA 비교</h3>
+              <p class="model-detail-block-goal">대시캠 영상에서 도로 상황 설명 정확도 비교</p>
+              <div class="model-detail-block-content">
+                <div class="model-detail-compare-grid">
+                  <div class="model-detail-compare-col">
+                    <h4 class="model-detail-compare-label model-detail-compare-wrong">PLLaVA 출력 결과</h4>
+                    <p class="model-detail-compare-desc">잘못된 정보 + 도로상황과 관련 없는 스크립트 생성</p>
+                  </div>
+                  <div class="model-detail-compare-col">
+                    <h4 class="model-detail-compare-label model-detail-compare-right">Qwen 출력 결과</h4>
+                    <p class="model-detail-compare-desc">도로의 노란색 경계선, 속도 제한 표지판(30), 건설 구역·교통 콘, 주차된 픽업트럭 등 영상과 일치하는 정확한 상황 묘사. 중요한 장면이 시간 순서대로 균형 있게 기술됨.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. 영상 관련 문제 생성 (RAG + GPT-OSS) -->
+            <div class="model-detail-block model-detail-block-blue">
+              <h3 class="model-detail-block-title">4. 영상 관련 문제 생성</h3>
+              <p class="model-detail-block-goal">도로상황 설명 텍스트 기반으로 <strong>객관식 문제 + 실제 법 조항 기반 해설</strong> 생성</p>
+              <div class="model-detail-block-content">
+                <div class="model-detail-model-badge model-detail-model-badge-blue">RAG + GPT-OSS(Ollama)</div>
+                <p class="model-detail-block-desc">도로교통법 문서 벡터화 → FAISS 법 조항 검색 → 법 조항 기반 Ollama GPT-OSS LLM으로 객관식 문제 생성</p>
+                <div class="model-detail-ps-grid">
+                  <div class="model-detail-ps-box">
+                    <h4 class="model-detail-ps-title">RAG</h4>
+                    <div class="model-detail-problem-box">
+                      <p><strong>문제:</strong> 도로상황과 관련 없는 법 조항을 참고하는 문제 발생</p>
+                    </div>
+                    <p class="model-detail-arrow-desc">↓ 문서 청킹 단위: '제XX조' 단위 벡터화, 유사도 검색 방식 mmr → similarity</p>
+                    <p class="model-detail-solution-text">→ 영상과 관련된 정확한 법 조항 안정적으로 추출 가능</p>
+                  </div>
+                  <div class="model-detail-ps-box">
+                    <h4 class="model-detail-ps-title">LLM</h4>
+                    <div class="model-detail-problem-box">
+                      <p><strong>문제:</strong> 프롬프트 캐싱으로 인해 GPT-OSS 호출할 때마다 답변 품질의 편차 발생</p>
+                    </div>
+                    <p class="model-detail-arrow-desc">↓ 매 호출마다 새로운 인스턴스 생성</p>
+                    <p class="model-detail-solution-text">→ 독립적인 상태 유지, 프롬프트에 기반한 안정적 답변 제공</p>
+                  </div>
+                </div>
+                <div class="model-detail-example-box">
+                  <h4 class="model-detail-example-title">예시: 영상 관련 문제</h4>
+                  <p class="model-detail-quiz-q">해당 영상에서 충돌 방지 책임을 지는 운전자를 올바르게 기술한 것은?</p>
+                  <ul class="model-detail-quiz-options">
+                    <li>A. 검은색 세단이 다른 차와 충돌해도 운전자의 책임이 있다.</li>
+                    <li>B. 우회전 중인 운전자 차량이 검은색 세단이 진입한 차선과 교차하는 경로를 진행하면, 운전자 차량이 충돌 방지 책임을 진다. <strong class="model-detail-answer">정답</strong></li>
+                    <li>C. 검은색 세단이 교차로에 진입한 경우, 우회전 중인 운전자 차량은 선행권이 없으므로 검은색 세단을 피해 차선을 변경한 후 주행한다.</li>
+                    <li>D. 우회전 중인 운전자 차량은 교차로에서 우선권이 없으므로 검은색 세단과 충돌해도 책임이 없다.</li>
+                  </ul>
+                </div>
+                <div class="model-detail-example-box model-detail-commentary">
+                  <h4 class="model-detail-example-title">OUTPUT: 실제 법 조항 인용한 해설</h4>
+                  <ul class="model-detail-commentary-list">
+                    <li><strong>정답 B:</strong> 도로교통법 시행규칙에 따르면, 차량 신호등이 적색일 때는 반드시 일시정지 후 우회전해야 하며, …</li>
+                    <li><strong>오답 C:</strong> 도로교통법 제25조 제1항 – 모든 차의 운전자는 교차로에서 우회전하려는 경우에는 미리 도로의 우측 가장자리를 서행하면서 우회전하여야 한다. …</li>
+                    <li><strong>오답 D:</strong> 우선권 유무와 관계없이 도로교통법상 운전자는 충돌 방지를 위한 주의의무가 있습니다. 도로교통법 제25조 제1항 인용 …</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5. 연관문제 생성 -->
+            <div class="model-detail-block model-detail-block-yellow">
+              <h3 class="model-detail-block-title">5. 연관문제 생성</h3>
+              <p class="model-detail-block-goal">LLM(GPT-OSS) + RAG(앙상블 리트리버)로 운전면허 연관 문제 검색</p>
+              <div class="model-detail-block-content">
+                <div class="model-detail-model-badge model-detail-model-badge-yellow">LLM + FAISS + BM25 앙상블</div>
+                <p class="model-detail-block-desc"><strong>LLM:</strong> 도로상황 설명 텍스트에서 중요 키워드 추출 (예: 우회전 무정지, 교차로 충돌, 비보호 좌회전)</p>
+                <p class="model-detail-block-desc">참고 문서: 한국도로교통공단 운전면허 문제은행</p>
+                <div class="model-detail-problem-box model-detail-fullwidth">
+                  <p><strong>기존 방식의 한계:</strong> 도로상황 설명 텍스트 자체로 문서 검색 시도 → 중요 키워드 추출 X. 유사도 기반 검색만으로는 의미가 비슷한 단어가 많아 중요 키워드가 포함된 문제 검색 불가.</p>
+                </div>
+                <p class="model-detail-solution-text">→ <strong>LLM 추가:</strong> 상황 설명 텍스트 → 중요 키워드 추출. <strong>FAISS + BM25 앙상블 리트리버</strong> 사용 (정확한 "단어"가 포함된 문제 검색 필요 → 유사도(3) + 키워드(7) 앙상블 리트리버)</p>
+                <div class="model-detail-example-box">
+                  <h4 class="model-detail-example-title">예시: 비보호좌회전 관련 문제 (246번)</h4>
+                  <p class="model-detail-quiz-q">비보호좌회전 교차로에서 좌회전하고자 할 때 설명으로 맞는 2가지는?</p>
+                  <p class="model-detail-quiz-answer">정답: ①, ③ | 해설: 비보호좌회전은 비보호 좌회전 안전표지가 있고, 차량신호가 녹색신호이고, 마주 오는 차량이 없을 때 좌회전할 수 있다. 녹색등화에서 비보호좌회전 때 사고가 발생하면 2010.8.24. 이후 안전운전의무 위반으로 처벌된다.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 6. 사용자 맞춤 피드백 -->
+            <div class="model-detail-block model-detail-block-cyan">
+              <h3 class="model-detail-block-title">6. 사용자 맞춤 피드백</h3>
+              <p class="model-detail-block-goal">LLM(GPT-OSS)으로 사용자 문제 풀이 정보를 분석해 맞춤형 피드백 제공</p>
+              <div class="model-detail-block-content">
+                <div class="model-detail-io-grid">
+                  <div class="model-detail-io-box">
+                    <h4 class="model-detail-io-title">INPUT: 사용자 문제 풀이 정보</h4>
+                    <p>사용자명, 총 문제 수/정답 수, 정답률, 강점 카테고리(도로 신호, 보행자 보호), 약점 카테고리(공사 구역, 노면 표시, 양보 운전), 주차 개선도(+/-) 등</p>
+                  </div>
+                  <div class="model-detail-io-box">
+                    <h4 class="model-detail-io-title">OUTPUT: 사용자 맞춤 피드백</h4>
+                    <p>강점 분야 정리, 약점 보완 필요 항목, 개선된 항목(예: 공사 구역 75%p 상승, 양보 운전 87.5%p 상승), 노면 표시는 시각적 인지 훈련 권고, 다음 주 학습 우선순위 제안 등</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
