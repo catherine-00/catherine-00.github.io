@@ -1314,6 +1314,10 @@ body.project-detail.standalone .project-category-nav {
 
 /* 나의 역할 - position 1090×515, left=120 중앙 배치 */
 .project-detail .section-architecture.section-role {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   max-width: 1090px;
   margin-left: auto;
   margin-right: auto;
@@ -1322,6 +1326,12 @@ body.project-detail.standalone .project-category-nav {
   box-sizing: border-box;
 }
 .project-detail .section-role .role-inner { opacity: 1; transform: none; }
+.project-detail .section-role .role-inner > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .project-detail .section-role .role-title {
   font-size: 2.25rem;
   font-weight: 900;
