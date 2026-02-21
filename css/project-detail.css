@@ -1150,7 +1150,7 @@ body.project-detail.standalone .project-category-nav {
   font-weight: 900;
   color: #fff;
   text-align: center;
-  margin: 50px 0 1rem;
+  margin: 50px 0 20px 0;
 }
 .project-detail .section-features .features-subtitle {
   font-size: 1rem;
@@ -1160,15 +1160,24 @@ body.project-detail.standalone .project-category-nav {
 }
 .project-detail .structure-box {
   background: unset;
-  background-color: rgba(30, 35, 43, 1);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(51, 65, 85, 1);
+  background-color: unset;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-width: 0;
+  border-style: none;
+  border-color: transparent;
+  border-image: none;
   border-radius: 1.5rem;
   padding: 2.5rem;
+  padding-top: 0px;
   box-sizing: border-box;
   margin-top: 0px;
   margin-bottom: 0px;
+}
+/* 서비스 로직 이미지: div 전체 가로폭(1013px)에 꽉 차도록, 비율 유지, 높이는 이미지에 맞춤 */
+.project-detail .structure-box:has(.structure-box-diagram--service-logic) {
+  padding-left: 0;
+  padding-right: 0;
 }
 .project-detail .structure-data-img {
   display: block;
@@ -1189,6 +1198,11 @@ body.project-detail.standalone .project-category-nav {
   max-width: 100%;
   height: auto;
   margin-bottom: 2rem;
+}
+.project-detail .structure-box .structure-box-diagram.structure-box-diagram--service-logic {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 .project-detail .structure-grid {
   display: grid;
@@ -1295,7 +1309,7 @@ body.project-detail.standalone .project-category-nav {
   .project-detail .structure-flow-arrow { display: none; }
   .project-detail .structure-flow { gap: 1.5rem; }
   .project-detail .section-features .features-title { font-size: 1.75rem; }
-  .project-detail .structure-box { padding: 1.5rem; }
+  .project-detail .structure-box { padding: 1.5rem; padding-top: 0px; }
 }
 
 /* 나의 역할 - position 1090×515, left=120 중앙 배치 */
