@@ -1137,7 +1137,7 @@ body.project-detail.standalone .project-category-nav {
 
 /* 시스템 구조 한 눈에 보기 - position 1090×340, left=120 중앙 배치 */
 .project-detail .section-features.section-structure {
-  max-width: 1090px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   min-height: 340px;
