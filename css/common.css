@@ -238,6 +238,7 @@ body {
 .nav-tabs {
   display: flex;
   gap: 8px;
+  margin-top: 200px;
   margin-bottom: 0;
 }
 
