@@ -621,6 +621,7 @@ body {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 16px;
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
 }
 
 .skills-category h3 {
