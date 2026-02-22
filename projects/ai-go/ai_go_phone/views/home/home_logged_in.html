@@ -1,0 +1,645 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>아이-고 · 메인</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!--
+  =============================================================
+  파일: main.html
+  화면: 아이-고 · 메인 (로그인 후 첫 화면)
+  요약: 상단 고정 Topbar + 히어로 비디오 + 퀴즈 미리보기 + 하단 주요 액션 버튼 3종
+
+  ✅ 연결(Integration) 지점 요약
+  - 메뉴 버튼(.btn-icon): 사이드바/드로어 열기 함수와 연결 (예: openSidebar())
+  - #quizButton: "퀴즈 학습" 시작 라우팅 (예: router.push('/quiz') 또는 location.href = '/quiz')
+  - #wrongNotesButton: "오답노트" 화면 라우팅 (예: router.push('/wrong-note'))
+  - #analyticsButton: "학습 분석" 화면 라우팅 (예: router.push('/analytics'))
+  - .volume-slider: <video> 요소의 볼륨 제어 (0~100 → 0.0~1.0 변환)
+  - #fullscreenBtn: 전체 화면 토글 (video.requestFullscreen() / document.exitFullscreen())
+
+  ✅ 데이터 바인딩 포인트
+  - 사용자 이름: .chip 내 텍스트와 .hello .name 영역 (로그인 사용자명 주입)
+  - 아바타 이니셜: .avatar(첫 글자) (서버/스토어에서 유저 데이터 바인딩)
+  - 퀴즈 미리보기: .quiz-card 내용은 서버/스토어에서 샘플 문항 주입 가능
+
+  ✅ 에셋(Assets) 경로
+     - 로고 이미지: img\ai_go_logo.png (프로젝트 구조에 맞게 조정 필요)
+  - 배경 비디오: ../../videos/driving-education.mp4 (미존재 시 아래 비디오 Fallback 표시)
+
+  ✅ 접근성(Accessibility) 권장 사항
+  - 모든 조작 버튼에 aria-label/role 속성 부여 (이미 일부 적용)
+  - 색 대비(Contrast) 점검 및 포커스 링 표시 고려
+
+  ✅ 반응형/레이아웃
+  - CSS 변수 기반의 모바일 우선 레이아웃
+  - 480px, 768px 기준 분기 미디어쿼리 제공
+  =============================================================
+  -->
+
+  <style>
+    /* ==================== 디자인 토큰 / 시스템 변수 ==================== */
+    :root{
+      --bg:#F9FBFF;               /* 앱 배경 */
+      --card:#ffffff;             /* 카드/섹션 배경 */
+      --text:#0f172a;             /* 본문 텍스트 기본색 */
+      --muted:#64748b;            /* 보조 텍스트(설명, 캡션) */
+      --blue:#246bff;             /* 주요 포인트 컬러 */
+      --blue-700:#1e5af2;         /* 포인트 진한 톤 */
+      --blue-050:#eef4ff;         /* 포인트 연한 톤 (배경/칩) */
+      --green:#11b37c;            /* 성공/완료 포인트 */
+      --yellow:#f59e0b;           /* 경고/주의 포인트 */
+      --rose:#ef4444;             /* 에러/위험 포인트 */
+      --line:#e6e8ee;             /* 경계선/디바이더 */
+      --chip:#eef2ff;             /* 칩 배경 */
+      --radius-xl:16px;           /* 카드 모서리 라운드 */
+      --radius-2xl:22px;          /* 큰 라운드 */
+      --shadow:0 6px 24px rgba(15,23,42,0.06); /* 공통 그림자 */
+
+      /* 모바일 웹 표준 여백 시스템 (컨테이너/섹션/카드 간격) */
+      --container-padding: 16px;
+      --section-gap: 24px;
+      --card-gap: 16px;
+      --border-radius: 16px;
+      --button-height: 48px;
+      --icon-size: 24px;
+    }
+
+    *{box-sizing:border-box}
+
+    /* 애니메이션 키프레임 */
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    html,body{
+      height:100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body{
+      /* 앱 전역 폰트 및 매끄러운 렌더링 */
+      font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ==================== 앱 컨테이너 ==================== */
+    .app{
+      width: 100%;
+      min-height: 100vh;
+      background:var(--bg);
+      display: flex;
+      flex-direction: column;  /* 상단바 → 콘텐츠 → (하단 고정바가 있다면) 순차 배치 */
+    }
+
+    /* ==================== 상단바(Topbar) ==================== */
+    .topbar{
+      /* 상단 고정, 안전영역 고려 */
+      padding: 16px var(--container-padding);
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center;
+      background: #fff; 
+      border-bottom: 1px solid var(--line);
+      position: sticky; /* 스크롤해도 상단 고정 */
+      top: 0;
+      z-index: 10;        /* 콘텐츠 위에 노출 */
+      flex-wrap: nowrap;
+      gap: 16px;
+      min-height: 60px;
+      animation: slideDown 0.6s ease-out;
+    }
+
+    .topbar .row{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-shrink: 0;
+      min-width: 0;
+    }
+
+    .topbar .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:18px;
+      font-weight:800;
+      color:var(--text);
+    }
+
+    .logo span{
+      color:#0183F4
+    }
+
+    .logo-img{
+      width:32px;
+      height:32px;
+      object-fit:contain
+    }
+
+    .btn-icon{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:40px;
+      height:40px;
+      border-radius:10px;
+      background:#ffffffd7;
+      border:1px solid var(--line);
+      cursor:pointer;
+      transition:all 0.2s ease;
+      flex-shrink:0;
+    }
+
+    .btn-icon:hover{
+      background:#f8fafc;
+      border-color:var(--blue);
+    }
+
+    .topbar .chip{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:8px 16px;
+      border-radius:24px;
+      background:var(--blue-050);
+      border:1px solid var(--blue-050);
+      flex-shrink: 0;
+      min-width: 0;
+    }
+
+    .topbar .avatar{
+      width:32px;
+      height:32px;
+      border-radius:50%;
+      background:var(--blue);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:14px;
+      font-weight:700;
+      flex-shrink:0;
+    }
+
+    /* ==================== 콘텐츠 공통 패딩 ==================== */
+    .content{
+      padding: var(--section-gap) var(--container-padding);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    /* 상단 리본(섹션 라벨/태그라인) */
+    .ribbon{
+      display:inline-block;padding:8px 16px;border-radius:24px;
+      background:#eef7ff;color:#2b73ff;font-weight:700;font-size:14px;
+      border:1px solid #d6e6ff;align-self:flex-start;
+      margin-bottom: 8px;
+    }
+
+    /* ==================== 인사(Hello) 블록 ==================== */
+    .hello{
+      display:flex; 
+      flex-direction: row;
+      gap: 16px; 
+      margin: 0;
+      align-items: center;
+      text-align: left;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .logo-section {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      margin-left: 10px;
+    }
+    
+    .login-logo-img{
+      width:60px;
+      height:60px;
+      object-fit:contain
+    }
+    
+    .login-logo-container{
+      width: 60px;
+      height: 60px;
+      border-radius:16px;
+      background: transparent;
+      display:grid;
+      place-items:center;
+      color:#0183F4;
+      font-weight:900;
+      font-size:22px;
+      border: none;
+      flex-shrink: 0;
+      box-shadow: none;
+    }
+    
+    .logo-text {
+      color: #0183F4;
+      font-weight: 900;
+      font-size: 24px;
+      padding-left: 3px;
+      letter-spacing: -0.02em;
+    }
+    
+    .welcome-message {
+      max-width: 400px;
+      margin-left: 0 !important;
+      margin-bottom: 0;
+      margin-top: 8px;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .hello h1{margin:0;line-height:1.4;font-size:24px;font-weight:500;color:#374151;outline:none;-webkit-tap-highlight-color:transparent}
+    .hello .name{color:#2b73ff;outline:none;-webkit-tap-highlight-color:transparent}
+    .subtle{color:var(--muted);font-size:14px}
+
+    /* ==================== 비디오(히어로) 섹션 ==================== */
+    .video-section{
+      background:#000 !important;border-radius:var(--radius-xl) !important;
+      border:1px solid var(--line) !important;box-shadow:var(--shadow) !important;
+      overflow:hidden !important;position:relative !important; /* 내부 오버레이(컨트롤) 배치용 */
+      width:100% !important;height:0 !important;padding-bottom:56.25% !important; /* 16:9 비율 직접 적용 */
+      margin:0 auto !important; /* 중앙 정렬 강제 적용 */
+      display:block !important; /* 블록 요소로 강제 설정 */
+    }
+         .video-player{
+           position:absolute !important;top:0 !important;left:0 !important;width:100% !important;height:100% !important;border:none !important;
+           border-radius:var(--radius-xl) !important; /* video-section과 동일한 border-radius */
+           display:block !important; /* 블록 요소로 강제 설정 */
+         } /* YouTube iframe 전체 화면 채우기 */
+
+         /* ==================== 퀴즈 미리보기 카드 ==================== */
+     .quiz-card{
+       background:var(--card);border-radius:var(--radius-xl);
+       border:1px solid var(--line);box-shadow:var(--shadow);
+       padding:20px;margin:0;
+       position:relative;
+       overflow:hidden;
+       animation: scaleIn 0.6s ease-out 0.4s both;
+       /* 실제 서비스에선 최신/맞춤 문항 1개를 서버에서 받아와 표시 가능 */
+     }
+     
+                       /* 그라데이션 마스크: 위에서 아래로 점점 투명해지다가 배경색과 같아짐 */
+       .quiz-card::after{
+         content:'';
+         position:absolute;
+         bottom:0;
+         left:0;
+         right:0;
+         height:120px;
+         background:linear-gradient(to bottom, transparent 0%, rgba(255,255,255,0.2) 20%, rgba(255,255,255,0.4) 40%, rgba(255,255,255,0.6) 60%, rgba(255,255,255,0.8) 80%, var(--bg) 100%);
+         pointer-events:none;
+       }
+      
+      /* 퀴즈 옵션들도 아래로 갈수록 점점 투명해짐 */
+      .quiz-option:nth-child(1) { opacity: 0.8; }
+      .quiz-option:nth-child(2) { 
+        opacity: 0.4; 
+        height: 50%; /* 절반만 보이도록 */
+        overflow: hidden; /* 아래 부분 숨김 */
+        clip-path: inset(0 0 50% 0); /* 아래쪽 50% 잘라냄 */
+        margin-bottom: 0; /* 하단 여백 제거 */
+      }
+      
+      /* 퀴즈 카드 하단 여백 조정 - 2번 선지가 잘린 부분 바로 아래까지 */
+      .quiz-card {
+        padding-bottom: 0px; /* 하단 패딩을 원래대로 복원 */
+      }
+     
+     .quiz-question{font-size:16px;font-weight:600;color:var(--text);margin-bottom:16px;line-height:1.4}
+     .quiz-options{display:flex;flex-direction:column;gap:12px;position:relative;z-index:1}
+
+     .quiz-option{
+       /* 보기관(선지) 한 줄 */
+       padding:16px;border-radius:12px;border:1px solid var(--line);background:#f8fafc;
+       cursor:pointer;transition:all 0.2s ease;
+     }
+     .quiz-option:hover{background:#f1f5f9;border-color:var(--blue)}
+     .quiz-option.selected{background:#e0f2fe;border-color:var(--blue);color:var(--blue)}
+
+     .option-number{
+       /* 선지 번호 동그라미 */
+       display:inline-block;width:24px;height:24px;border-radius:50%;background:var(--blue);
+       color:white;text-align:center;line-height:24px;font-size:12px;font-weight:700;margin-right:12px;
+     }
+     .option-text{font-size:14px;line-height:1.4}
+
+         /* ==================== 하단 주요 액션 버튼들 ==================== */
+     .bottom-actions{
+       display:flex;flex-direction:column;gap:12px;margin-top:auto;
+       animation: fadeInUp 0.6s ease-out 0.6s both;
+       /* 버튼 3개: 퀴즈 시작(100%) + 오답노트+학습분석(50%씩 한줄) */
+     }
+         .action-button{
+       display:flex;align-items:center;justify-content:center;gap:12px;padding:16px;border-radius:var(--radius-xl);
+       text-decoration:none;color:inherit;transition:all 0.2s ease;border:1px solid;cursor:pointer;
+       font-size:14px;font-weight:600;
+     }
+    .action-button:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(15,23,42,0.15)}
+
+                                       /* 각 버튼별 테마 컬러 및 레이아웃 */
+       .action-button.quiz{background:#92db7b61;color:#2d5a1f;width:100%;border-color:#2d5a1f42}
+       .action-button.wrong-notes{background:#f7e1ed;color:#be185d;width:50%;border-color:#be185d54}
+       .action-button.analytics{background:#efeaff;color:#6a2cfc;width:50%;border-color:#8b5cf648}
+     
+     /* 오답노트와 학습분석을 한 줄에 배치 */
+     .bottom-row{
+       display:flex;gap:12px;width:100%
+     }
+
+         .action-button .icon{width:20px;height:20px;flex-shrink:0}
+     .action-button.quiz .icon{color:#2d5a1f}
+     .action-button.wrong-notes .icon{color:#be185d}
+     .action-button.analytics .icon{color:#6a2cfc}
+
+    /* 작은 캡션/보조 텍스트 */
+    .mini{font-size:12px;color:#7c899a;font-weight:700}
+
+    /* ==================== 반응형: 모바일/태블릿/데스크톱 ==================== */
+    @media (max-width: 720px) {
+      :root {
+        --section-gap: 16px; /* 간격 줄임 */
+        --container-padding: 16px;
+      }
+      .content {
+        padding: var(--section-gap) var(--container-padding);
+        gap: 8px;
+        padding-bottom: 12px; /* 하단 패딩 최소화 */
+      }
+      .bottom-actions {
+        gap: 8px;
+        margin-top: 8px; /* 상단 마진 줄임 */
+      }
+      .bottom-row {gap: 8px}
+      
+      /* 비디오 섹션 높이 조정 */
+      .video-section {
+        padding-bottom: 45%; /* 16:9에서 약간 줄임 */
+      }
+    }
+
+    @media (max-width: 480px) {
+      :root {
+        --container-padding: 16px;
+        --section-gap: 12px; /* 더 작은 간격 */
+        --card-gap: 12px;
+      }
+      .content {
+        padding: var(--section-gap) var(--container-padding);
+        gap: 8px;
+        padding-bottom: 8px; /* 하단 패딩 더 줄임 */
+      }
+
+      .bottom-actions {gap: 6px; margin-top: 6px} /* 더 작은 간격 */
+      .bottom-row {gap: 6px}
+
+      .hello h1 {font-size: 20px}
+      .login-logo-container {width: 50px;height: 50px;font-size: 20px;padding-top: 5px}
+      .logo-text {font-size: 20px}
+      
+      /* 비디오 섹션 높이 더 조정 */
+      .video-section {
+        padding-bottom: 40%; /* 모바일에서 더 작게 */
+      }
+    }
+
+         @media (min-width: 481px) and (max-width: 768px) {
+       :root {--container-padding: 24px;--section-gap: 32px;--card-gap: 20px}
+       .bottom-actions {gap: 16px}
+       .bottom-row {gap: 16px}
+       .login-logo-container {width: 55px;height: 55px;font-size: 24px}
+       .logo-text {font-size: 22px}
+       .hello h1 {font-size: 22px}
+     }
+
+         @media (min-width: 769px) {
+       :root {--container-padding: 32px;--section-gap: 40px;--card-gap: 24px}
+       /* 16:9 비율 유지로 고정 높이 제거 */
+       .bottom-actions {gap: 20px}
+       .bottom-row {gap: 20px}
+       .login-logo-container {width: 60px;height: 60px;font-size: 26px}
+       .logo-text {font-size: 24px}
+       .hello h1 {font-size: 24px}
+     }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <!-- ==================== 상단바(고정) ==================== -->
+
+
+    <!-- ==================== 본문 콘텐츠 ==================== -->
+    <div class="content">
+      <!-- 상단 태그라인/리본: 서비스 카테고리/슬로건 표시 -->
+      <span class="ribbon" aria-label="서비스 설명">스마트 운전 교육 플랫폼</span>
+
+      <!-- 인사 블록: 사용자 맞춤 환영 문구(이름 바인딩) -->
+      <div class="hello" aria-label="인사말">
+        <div class="logo-section">
+          <div class="login-logo-container"><img src="img/ai_go_logo.png" class="login-logo-img"></div>
+          <div class="logo-text">아이-고</div>
+        </div>
+        <div class="welcome-message">
+          <h1>
+            안녕하세요 <span class="name">김운전</span>님<br/>
+            오늘도 안전 운전하세요!
+          </h1>
+        </div>
+      </div>
+
+      <!-- ========== 히어로 비디오 영역 ==========
+           - YouTube 영상 자동재생(loop+muted)로 모바일 정책에 맞춤
+           - 소리는 무조건 음소거 상태로 유지
+           - 전체화면 기능 제거
+      -->
+      <div class="video-section" aria-label="교육 영상">
+        <video 
+          class="video-player" 
+          src="img/middle_87785.mp4"
+          autoplay 
+          loop 
+          muted 
+          playsinline
+          controls>
+          브라우저가 비디오를 지원하지 않습니다.
+        </video>
+      </div>
+    <!-- <iframe 
+      src="https://www.youtube.com/embed/SVjLcOKLB9I?autoplay=1&loop=1&mute=1&playlist=SVjLcOKLB9I&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen>
+    </iframe> -->
+
+      
+
+      <!-- ========== 퀴즈 미리보기 카드 ==========
+           - 샘플 문항 1개를 표시(서버/스토어 바인딩 가능)
+           - .quiz-option[data-option] 구조: 선택 상태는 .selected 클래스로 표현
+           - 연결: 카드 자체는 클릭 시 퀴즈 화면으로 진입하도록 처리 가능
+      -->
+      <!-- <div class="quiz-card" aria-label="퀴즈 미리보기">
+        <div class="quiz-question">안전한 차간 간격을 위한 올바른 순서는?</div>
+        <div class="quiz-options" role="listbox" aria-label="선지">
+          <div class="quiz-option selected" data-option="1" role="option" aria-selected="true">
+            <span class="option-number">1</span>
+            <span class="option-text">방향지시등 → 룸미러 확인 → 사각지대 확인 → 차선 변경</span>
+          </div>
+          <div class="quiz-option" data-option="2" role="option" aria-selected="false">
+            <span class="option-number">2</span>
+            <span class="option-text">사각지대 확인 → 방향지시등 → 룸미러 확인 → 차선 변경</span>
+          </div>
+
+        </div>
+      </div> -->
+
+      <!-- ========== 하단 주요 액션 버튼들 ==========
+           - 각 버튼은 서비스의 핵심 흐름으로 진입
+           - 연결: 아래 ID를 기준으로 라우팅/페이지 이동 로직 연결
+      -->
+        <div class="bottom-actions" aria-label="주요 작업">
+         <!-- 퀴즈 바로 시작하기: 가장 강조(100% width) -->
+         <button class="action-button quiz" id="quizButton" aria-label="퀴즈 바로 시작하기">
+           <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+             <polygon points="5,3 19,12 5,21"></polygon>
+           </svg>
+           퀴즈 바로 시작하기
+         </button>
+
+         <!-- 오답노트와 학습분석을 한 줄에 배치 -->
+         <div class="bottom-row">
+           <!-- 오답노트: 누적된 오답 복습 진입 -->
+           <button class="action-button wrong-notes" id="wrongNotesButton" aria-label="오답노트">
+             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+               <path d="M4 4h16v16H4z"></path>
+               <path d="M8 8h8M8 12h8M8 16h5"></path>
+             </svg>
+             오답노트
+           </button>
+
+           <!-- 학습 분석: 개인화된 통계/인사이트 화면으로 이동 -->
+           <button class="action-button analytics" id="analyticsButton" aria-label="학습 분석">
+             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+               <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+               <path d="M7 13h2v5H7zM11 9h2v9h-2zM15 6h2v12h-2z"></path>
+             </svg>
+             학습 분석
+           </button>
+         </div>
+       </div>
+    </div>
+  </main>
+
+  <!-- 헤더는 직접 포함되어 있습니다 -->
+  
+  <script>
+    // 비디오 섹션 16:9 비율 강제 적용
+    function ensureVideoAspectRatio() {
+      const videoSection = document.querySelector('.video-section');
+      const videoPlayer = document.querySelector('.video-player');
+      
+      // 비디오 섹션 스타일 강제 적용
+      if (videoSection) {
+        videoSection.style.setProperty('background', '#000', 'important');
+        videoSection.style.setProperty('position', 'relative', 'important');
+        videoSection.style.setProperty('width', '100%', 'important');
+        videoSection.style.setProperty('height', '0', 'important');
+        videoSection.style.setProperty('padding-bottom', '56.25%', 'important');
+        videoSection.style.setProperty('overflow', 'hidden', 'important');
+        videoSection.style.setProperty('border-radius', 'var(--radius-xl)', 'important');
+        videoSection.style.setProperty('margin', '0 auto', 'important');
+        videoSection.style.setProperty('display', 'block', 'important');
+      }
+      
+      // 비디오 플레이어 스타일 강제 적용
+      if (videoPlayer) {
+        videoPlayer.style.setProperty('position', 'absolute', 'important');
+        videoPlayer.style.setProperty('top', '0', 'important');
+        videoPlayer.style.setProperty('left', '0', 'important');
+        videoPlayer.style.setProperty('width', '100%', 'important');
+        videoPlayer.style.setProperty('height', '100%', 'important');
+        videoPlayer.style.setProperty('border', 'none', 'important');
+        videoPlayer.style.setProperty('border-radius', 'var(--radius-xl)', 'important');
+        videoPlayer.style.setProperty('display', 'block', 'important');
+      }
+    }
+
+    // 페이지 로드 시 비디오 비율 적용
+    document.addEventListener('DOMContentLoaded', ensureVideoAspectRatio);
+    
+    // 다른 페이지에서 돌아왔을 때도 비디오 비율 적용
+    window.addEventListener('hashchange', () => {
+      if (location.hash === '#/home' || location.hash === '#/') {
+        setTimeout(ensureVideoAspectRatio, 100);
+      }
+    });
+
+    // 라우팅 연결 (해시 기반 라우터 사용)
+    document.getElementById('quizButton')?.addEventListener('click', () => {
+      window.location.hash = '#/quiz';
+    });
+    document.getElementById('wrongNotesButton')?.addEventListener('click', () => {
+      window.location.hash = '#/wrong-notes';
+    });
+    document.getElementById('analyticsButton')?.addEventListener('click', () => {
+      window.location.hash = '#/analytics';
+    });
+  </script>
+</body>
+</html>

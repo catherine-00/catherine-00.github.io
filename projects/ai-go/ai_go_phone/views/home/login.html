@@ -1,0 +1,919 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>아이-고 · 로그인</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f7f8fb;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#64748b;
+      --blue:#246bff;
+      --blue-700:#1e5af2;
+      --blue-050:#eef4ff;
+      --green:#10b981;
+      --orange:#f97316;
+      --line:#e6e8ee;
+      --chip:#eef2ff;
+      --radius-xl:16px;
+      --radius-2xl:22px;
+      --shadow:0 6px 24px rgba(15,23,42,0.06);
+      --focus:0 0 0 3px rgba(36,107,255,.18);
+      
+      /* 모바일 웹 표준 여백 시스템 */
+      --container-padding: 16px;
+      --section-gap: 24px;
+      --card-gap: 16px;
+      --border-radius: 16px;
+      --button-height: 48px;
+      --icon-size: 24px;
+    }
+    
+    *{box-sizing:border-box}
+    
+    /* 애니메이션 키프레임 */
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    html,body{
+      height:100%;
+      margin: 0;
+      padding: 0;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    
+    body{
+      font-family:"Pretendard","Noto Sans KR",system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg); 
+      color:var(--text);
+    }
+    
+    .app{
+      width: 100%;
+      min-height: 100vh; 
+      background:var(--bg); 
+      display:flex; 
+      flex-direction:column;
+    }
+
+    /* ==================== 상단바(Topbar) ==================== */
+    .topbar{
+      /* 상단 고정, 안전영역 고려 */
+      padding: 16px var(--container-padding);
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center;
+      background: #fff; 
+      border-bottom: 1px solid var(--line);
+      position: sticky; /* 스크롤해도 상단 고정 */
+      top: 0;
+      z-index: 10;        /* 콘텐츠 위에 노출 */
+      flex-wrap: nowrap;
+      gap: 16px;
+      min-height: 60px;
+    }
+
+    .topbar .row{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      flex-shrink: 0;
+      min-width: 0;
+    }
+
+    .topbar .logo{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:18px;
+      font-weight:800;
+      color:var(--text);
+    }
+
+    .logo span{
+      color:#0183F4
+    }
+
+    .logo-img{
+      width:32px;
+      height:32px;
+      object-fit:contain
+    }
+    
+    .login-logo-img{
+      width:60px;
+      height:60px;
+      object-fit:contain
+    }
+    
+    .login-logo-container{
+      width: 60px;
+      height: 60px;
+      border-radius:16px;
+      background: transparent;
+      display:grid;
+      place-items:center;
+      color:#0183F4;
+      font-weight:900;
+      font-size:22px;
+      border: none;
+      flex-shrink: 0;
+      box-shadow: none;
+    }
+
+    .btn-icon{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:40px;
+      height:40px;
+      border-radius:10px;
+      background:#ffffffd7;
+      border:1px solid var(--line);
+      cursor:pointer;
+      transition:all 0.2s ease;
+      flex-shrink:0;
+    }
+
+    .btn-icon:hover{
+      background:#f8fafc;
+      border-color:var(--blue);
+    }
+
+    .topbar .chip{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:8px 16px;
+      border-radius:24px;
+      background:var(--blue-050);
+      border:1px solid var(--blue-050);
+      flex-shrink: 0;
+      min-width: 0;
+    }
+
+    .topbar .avatar{
+      width:32px;
+      height:32px;
+      border-radius:50%;
+      background:var(--blue);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#fff;
+      font-size:14px;
+      font-weight:700;
+      flex-shrink:0;
+    }
+
+    .btn-icon{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:40px;
+      height:40px;
+      border-radius:10px;
+      background:#ffffffd7;
+      border:1px solid var(--line);
+      cursor:pointer;
+      transition:all 0.2s ease;
+      flex-shrink:0;
+    }
+
+    .btn-icon:hover{
+      background:#f8fafc;
+      border-color:var(--blue);
+    }
+
+    .topbar .chip{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:8px 16px;
+      border-radius:24px;
+      background:var(--blue-050);
+      border:1px solid var(--blue-050);
+      flex-shrink: 0;
+      min-width: 0;
+    }
+    
+    .link-login{
+      display:flex; 
+      align-items:center; 
+      gap:8px; 
+      color:#1f2a44; 
+      font-weight:700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    
+    .link-login:hover {
+      color: var(--blue);
+      transform: translateY(-1px);
+    }
+    
+    .avatar{
+      width: 22px;
+      height: 22px;
+      border-radius:999px;
+      background:var(--blue);
+      color:#fff;
+      display:grid;
+      place-items:center;
+      font-size:12px;
+      font-weight:800;
+      flex-shrink: 0;
+    }
+
+    .content{
+      padding: 24px var(--container-padding) 100px;
+      display: flex;
+      flex-direction: column;
+      gap: 0px !important;
+      animation: slideDown 0.8s ease-out;
+    }
+    
+    .ribbon{
+      display:inline-block; 
+      padding:8px 12px; 
+      border-radius:999px; 
+      background:#eef7ff; 
+      color:#2b73ff; 
+      font-weight:700; 
+      font-size:12px; 
+      border:1px solid #d6e6ff;
+      align-self: flex-start;
+    }
+
+    /* 헤더/타이틀 */
+    .hello{
+      display:flex; 
+      flex-direction: column;
+      gap: 0px !important; 
+      margin: 10px 0 0 0;
+      align-items: flex-start;
+      text-align: left;
+      animation: fadeInUp 0.6s ease-out 0.2s both;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .logo-section {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      margin-left: 10px;
+    }
+    
+    
+    .logo-text {
+      color: #0183F4;
+      font-weight: 900;
+      font-size: 24px;
+      padding-left: 3px;
+      letter-spacing: -0.02em;
+    }
+    
+    .welcome-message {
+      max-width: 400px;
+      margin-left: 10px;
+      margin-bottom: 0;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;;
+    }
+    
+    .highlight {
+      color: #2b73ff;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    h1{
+      margin:0; 
+      line-height:1.4; 
+      font-size: 24px !important; 
+      font-weight: 500 bold !important;
+      color:#374151;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    h1 u{text-underline-offset:6px}
+
+    /* 폼 */
+    .form{
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      animation: fadeInUp 0.6s ease-out 0.4s both;
+    }
+    
+    .input{
+      display:flex; 
+      align-items:center; 
+      gap:10px;
+      background:#fff; 
+      border:1px solid var(--line); 
+      border-radius:16px; 
+      padding:16px;
+      box-shadow:var(--shadow);
+      transition: all 0.2s ease;
+    }
+    
+    .input:focus-within{
+      box-shadow:var(--shadow), var(--focus); 
+      border-color:#cfe0ff;
+      transform: translateY(-1px);
+    }
+    
+    .input input{
+      border:none; 
+      outline:none; 
+      width:100%; 
+      background:transparent; 
+      font-size:14px; 
+      color:var(--text)
+    }
+    
+    .field-foot{
+      display:flex; 
+      align-items:center; 
+      justify-content:space-between; 
+      margin:8px 4px 6x; 
+      color:var(--muted); 
+      font-size:12px
+    }
+    
+    .remember{
+      display:flex; 
+      align-items:center; 
+      gap:8px
+    }
+    
+    .remember input{
+      appearance: none;
+      width:16px;
+      height:16px;
+      border:1.6px solid #c7cfe0;
+      border-radius:4px;
+      display:inline-block;
+      position:relative;
+      cursor: pointer;
+    }
+    
+    .remember input:checked{
+      background:var(--blue); 
+      border-color:var(--blue)
+    }
+    
+    .remember input:checked::after{
+      content:""; 
+      position:absolute; 
+      left:4px; 
+      top:1px; 
+      width:6px; 
+      height:10px; 
+      border:2px solid #fff; 
+      border-top:none; 
+      border-left:none; 
+      transform:rotate(45deg)
+    }
+    
+    .link{
+      color:#49618a; 
+      text-decoration:none;
+      transition: color 0.2s ease;
+    }
+    
+    .link:hover {
+      color: var(--blue);
+    }
+    
+    .btn-primary{
+      display: flex;
+      align-items: center;   /* 수직 중앙 */
+      justify-content: center; /* 가로 중앙 */
+      width: 100%;
+      border: none;
+      border-radius: 16px;
+      padding: 0;   /* flex 중앙정렬이면 padding으로 높이 안 잡음 */
+      background: linear-gradient(90deg, var(--blue), var(--blue-700));
+      color: #fff;
+      font-weight: 900;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(36, 107, 255, .25);
+      transition: all 0.2s ease;
+      height: var(--button-height);
+    }
+    
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 32px rgba(36,107,255,.35);
+    }
+    
+    .btn-primary:active{
+      transform:translateY(1px)
+    }
+    
+    .signup{
+      margin-top:0x; 
+      text-align:center; 
+      color:#445; 
+      font-size:14px;
+      animation: fadeInUp 0.6s ease-out 0.6s both;
+    }
+    
+    .signup a{
+      color:var(--blue); 
+      font-weight:800; 
+      text-decoration:none;
+      transition: color 0.2s ease;
+    }
+    
+    .signup a:hover {
+      color: var(--blue-700);
+    }
+
+    /* 일러스트 이미지 */
+    .car-illu {
+      width: 180px;      /* 이미지 가로 크기 */
+      margin: 20px auto 30px auto;  /* 상단 20px, 좌우 자동 중앙 */
+    }
+
+    .car-img {
+      width: 180px;   /* 원하는 가로 크기 */
+      height: auto;   /* 세로는 자동 (비율 유지) */
+      display: block;
+    }
+
+    /* 섹션 제목/설명 */
+    .title1{
+      font-size:22px;   /* 글자 크기 */
+      font-weight:900;  /* 글자 두껍게 */
+      margin: 10px 0 20px 0;
+      text-align: center;  /* 글자 가운데 정렬 */
+    }
+
+    .title2{
+      font-size:18px;   /* 글자 크기 */
+      font-weight:900;  /* 글자 두껍게 */
+      margin:18px 0 6px;  /* 위 18px, 좌우 0, 아래 6px */
+      text-align: center;  /* 글자 가운데 정렬 */
+    }
+
+    .title3{
+      color: #5b6b80;
+      font-size: 15px;
+      font-weight:500;
+      line-height: 1.6;
+      margin: 0 0 20px 0; /* 하단 마진 추가 */
+      text-align: center;
+    }
+    
+    .desc{
+      color:#5b6b80; 
+      font-size:13px; 
+      line-height:1.6;
+      margin-top: 0;
+    }
+
+    /* 특징 타일 */
+    .list{
+      display:flex; 
+      flex-direction:column; 
+      gap:12px; 
+      margin-top:0px
+    }
+    
+    .tile{
+      display:flex; 
+      align-items:flex-start; 
+      gap:12px; 
+      padding:16px; 
+      background:#fff; 
+      border:1px solid var(--line);
+      border-radius:16px; 
+      box-shadow:var(--shadow);
+      transition: all 0.2s ease;
+    }
+    
+    .tile:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(15,23,42,0.1);
+    }
+    
+    .lead{
+      width: 36px;
+      height: 36px;
+      border-radius:10px;
+      display:grid;
+      place-items:center;
+      border:1px solid var(--line); 
+      background:#fafbff;
+      flex-shrink: 0;
+    }
+    
+    .lead.blue{color:var(--blue); background:#eff6ff}
+    .lead.green{color:var(--green); background:#ecfdf5}
+    .lead.purple{color:#7c3aed; background:#f5f3ff}
+    .lead.orange{color:var(--orange); background:#fff7ed}
+    
+    .tile .t{font-weight:800}
+    .tile .s{font-size:12px; color:var(--muted); margin-top:4px}
+
+    /* CTA */
+    .cta{
+      margin:18px 0 32px; 
+      border-radius:22px; 
+      padding:22px; 
+      background:linear-gradient(180deg,#1f66ff,#1460ff);
+      color:#fff; 
+      text-align:center; 
+      box-shadow:0 10px 30px rgba(36,107,255,.35);
+      transition: all 0.2s ease;
+    }
+    
+    .cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 40px rgba(36,107,255,.4);
+    }
+    
+    .cta h3{margin:0 0 8px; font-size:20px; font-weight:900}
+    .cta p{margin:0; opacity:.95; font-size:14px; line-height:1.6}
+    
+    .cta .cta-btn{
+      display:inline-flex; 
+      align-items:center; 
+      gap:8px; 
+      margin-top:16px;
+      padding:12px 16px; 
+      background:#fff; 
+      color:#0f55ff; 
+      border-radius:999px; 
+      font-weight:900; 
+      border:1px solid #eaf0ff; 
+      text-decoration:none;
+      transition: all 0.2s ease;
+    }
+    
+    .cta .cta-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(255,255,255,0.3);
+    }
+
+
+
+
+    /* 접근성용 포커스 */
+    a:focus, button:focus, input:focus{outline:var(--focus)}
+
+    /* ===== 반응형 디자인 ===== */
+    @media (max-width: 480px) {
+      :root {
+        --container-padding: 16px;
+        --section-gap: 20px;
+        --card-gap: 12px;
+        --border-radius: 16px;
+        --button-height: 48px;
+        --icon-size: 24px;
+      }
+      
+      .content {
+        padding: 20px 16px 100px;
+        gap: 20px;
+        animation: slideDown 0.8s ease-out;
+      }
+      
+      .topbar {
+        padding: 16px 16px;
+      }
+      
+      .btn-icon {
+        width: 36px;
+        height: 36px;
+      }
+      
+      .login-logo-container {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        padding-top: 5px;
+      }
+      
+      .logo-text {
+        font-size: 20px;
+      }
+      
+      h1 {
+        font-size: 18px;
+      }
+      
+      h1 {
+        font-size: 20px;
+      }
+      
+      .input {
+        padding: 14px;
+      }
+      
+      .car-illu {
+        width: 180px;
+        height: 130px;
+      }
+      
+      .tile {
+        padding: 14px;
+      }
+      
+      .cta {
+        padding: 20px;
+      }
+    }
+
+    @media (min-width: 481px) and (max-width: 768px) {
+      :root {
+        --container-padding: 24px;
+        --section-gap: 32px;
+        --card-gap: 20px;
+        --border-radius: 20px;
+        --button-height: 56px;
+        --icon-size: 28px;
+      }
+      
+      .content {
+        padding: 32px 24px 100px;
+        gap: 32px;
+        animation: slideDown 0.8s ease-out;
+      }
+      
+      .topbar {
+        padding: 20px 24px;
+      }
+      
+      .btn-icon {
+        width: 44px;
+        height: 44px;
+      }
+      
+      .login-logo-container {
+        width: 55px;
+        height: 55px;
+        font-size: 24px;
+      }
+      
+      .logo-text {
+        font-size: 22px;
+      }
+      
+      h1 {
+        font-size: 19px;
+      }
+      
+      h1 {
+        font-size: 24px;
+      }
+      
+      .input {
+        padding: 18px;
+      }
+      
+      .car-illu {
+        width: 240px;
+        height: 170px;
+      }
+      
+      .tile {
+        padding: 20px;
+      }
+      
+      .cta {
+        padding: 28px;
+      }
+    }
+
+    @media (min-width: 769px) {
+      :root {
+        --container-padding: 32px;
+        --section-gap: 40px;
+        --card-gap: 24px;
+        --border-radius: 24px;
+        --button-height: 64px;
+        --icon-size: 32px;
+      }
+      
+      .content {
+        padding: 40px 32px 100px;
+        gap: 40px;
+        animation: slideDown 0.8s ease-out;
+      }
+      
+      .topbar {
+        padding: 24px 32px;
+      }
+      
+      .btn-icon {
+        width: 48px;
+        height: 48px;
+      }
+      
+      .login-logo-container {
+        width: 60px;
+        height: 60px;
+        font-size: 26px;
+      }
+      
+      .logo-text {
+        font-size: 24px;
+      }
+      
+      h1 {
+        font-size: 20px;
+      }
+      
+      h1 {
+        font-size: 26px;
+      }
+      
+      .input {
+        padding: 20px;
+      }
+      
+      .car-illu {
+        width: 280px;
+        height: 200px;
+      }
+      
+      .tile {
+        padding: 24px;
+      }
+      
+      .cta {
+        padding: 32px;
+      }
+    }
+    
+    /* 로그인 페이지에서는 사용자 칩만 숨김 */
+    .topbar .chip {
+      display: none !important;
+    }
+    
+    /* 하단 네비게이션 바 숨기기 */
+    aside.drawer {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <!-- ==================== 상단바(고정) ==================== -->
+ 
+
+    <div class="content">
+      <span class="ribbon">스마트 운전 교육 플랫폼</span>
+
+      <div class="hello">
+        <div class="logo-section">
+          <div class="login-logo-container"><img src="img/ai_go_logo.png" class="login-logo-img"></div>
+          <div class="logo-text">아이-고</div>
+        </div>
+        <div class="welcome-message">
+          <h1>서비스 이용을 위해<br><span class="highlight">로그인</span> 해주세요.</h1>
+        </div>
+      </div>
+
+      <!-- 폼 -->
+      <form class="form" action="#" method="post">
+        <label class="input" aria-label="이메일">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2">
+            <path d="M4 4h16v16H4z"></path>
+            <path d="M4 8l8 5 8-5"></path>
+          </svg>
+          <input type="email" placeholder="이메일을 입력하세요." required>
+        </label>
+
+        <label class="input" aria-label="비밀번호">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2">
+            <rect x="3" y="11" width="18" height="10" rx="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <input type="password" placeholder="비밀번호를 입력하세요." required>
+          <button type="button" aria-label="비밀번호 보기" style="border:none;background:transparent;padding:0;margin-left:6px;color:#6b7280;cursor:pointer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </button>
+        </label>
+
+        <div class="field-foot">
+          <label class="remember">
+            <input type="checkbox" />
+            <span>로그인 상태 유지</span>
+          </label>
+          <a class="link" href="#">비밀번호 찾기</a>
+        </div>
+
+        <button class="btn-primary" type="submit">로그인</button>
+        <div class="signup">아직 회원이 아니신가요? <a href="#">회원가입</a></div>
+      </form>
+
+      <!-- 일러스트 -->
+      <div class="car-illu">
+        <!-- 운전노인 이미지 -->
+        <img src="img/운전노인 1.png" alt="운전 노인" class="car-img">
+      </div>
+
+      <h2 class="title1">왜 <span style="color:#2b73ff;font-weight:900">아이-고</span>를 선택해야 할까요?</h2>
+      <p class="title3">실제 도로 영상과 AI 기술을 결합한 운전 교육 서비스로<br/>효과적인 학습이 가능합니다.</p>
+
+      <div class="list">
+        <div class="tile">
+          <div class="lead blue">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+          <div>
+            <div class="t">실제 도로 주행 영상</div>
+            <div class="s">실제 도로 상황을 담은 영상으로 현실적인 학습 경험을 제공합니다.</div>
+          </div>
+        </div>
+
+        <div class="tile">
+          <div class="lead green">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+          </div>
+          <div>
+            <div class="t">AI 맞춤 문제</div>
+            <div class="s">AI가 생성한 맞춤형 문제로 효과적인 학습이 가능합니다.</div>
+          </div>
+        </div>
+
+        <div class="tile">
+          <div class="lead purple">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 13h2v5H7zM11 9h2v9h-2zM15 6h2v12h-2z"/></svg>
+          </div>
+          <div>
+            <div class="t">학습 분석</div>
+            <div class="s">상세한 학습 분석으로 약점을 파악하고 개선할 수 있습니다.</div>
+          </div>
+        </div>
+
+        <div class="tile">
+          <div class="lead orange">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 9v4"></path><path d="M12 17h.01"></path>
+              <path d="M4.5 20h15l.5-10A7.5 7.5 0 0 0 12 2.5 7.5 7.5 0 0 0 4 10z"></path>
+            </svg>
+          </div>
+          <div>
+            <div class="t">안전 운전</div>
+            <div class="s">교통 법규와 안전 운전 습관을 체계적으로 학습할 수 있습니다.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta">
+        <h3>지금 바로 시작하세요</h3>
+        <p>아이-고와 함께 더 안전하고 자신감 있는 운전자가 되어보세요.<br/>언제 어디서나 학습을 시작할 수 있습니다.</p>
+        <a class="cta-btn" href="#">
+          무료로 시작하기
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- 헤더는 직접 포함되어 있습니다 -->
+</body>
+</html>
