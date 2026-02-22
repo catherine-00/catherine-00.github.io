@@ -610,8 +610,17 @@ body {
 }
 
 /* ========== Skills ========== */
+#skills {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px 32px;
+}
+
 .skills-category {
-  margin-bottom: 28px;
+  margin-bottom: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
 }
 
 .skills-category h3 {
