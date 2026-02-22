@@ -1159,6 +1159,11 @@ body.project-detail.standalone .project-category-nav {
   margin: 0 0 3rem;
 }
 .project-detail .structure-box {
+  vertical-align: middle;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background: unset;
   background-color: unset;
   backdrop-filter: none;
@@ -1167,9 +1172,10 @@ body.project-detail.standalone .project-category-nav {
   border-style: none;
   border-color: transparent;
   border-image: none;
-  border-radius: 1.5rem;
+  border-radius: 0;
   padding: 2.5rem;
-  padding-top: 0px;
+  padding-top: 40px;
+  padding-bottom: 20px;
   box-sizing: border-box;
   margin-top: 0px;
   margin-bottom: 0px;
@@ -1178,6 +1184,14 @@ body.project-detail.standalone .project-category-nav {
 .project-detail .structure-box:has(.structure-box-diagram--service-logic) {
   padding-left: 0;
   padding-right: 0;
+}
+/* 시스템 아키텍처 박스만: 흰 배경, 이미지 모서리 직각 */
+.project-detail .structure-box--architecture {
+  background: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 1);
+}
+.project-detail .structure-box--architecture .structure-box-diagram {
+  border-radius: 0;
 }
 .project-detail .structure-data-img {
   display: block;
@@ -1198,6 +1212,8 @@ body.project-detail.standalone .project-category-nav {
   max-width: 100%;
   height: auto;
   margin-bottom: 2rem;
+  background-color: transparent;
+  border-radius: 0;
 }
 .project-detail .structure-box .structure-box-diagram.structure-box-diagram--service-logic {
   width: 100%;
@@ -1309,7 +1325,7 @@ body.project-detail.standalone .project-category-nav {
   .project-detail .structure-flow-arrow { display: none; }
   .project-detail .structure-flow { gap: 1.5rem; }
   .project-detail .section-features .features-title { font-size: 1.75rem; }
-  .project-detail .structure-box { padding: 1.5rem; padding-top: 0px; }
+  .project-detail .structure-box { padding: 1.5rem; padding-top: 40px; padding-bottom: 20px; }
 }
 
 /* 나의 역할 - position 1090×515, left=120 중앙 배치 */
