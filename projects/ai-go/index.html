@@ -945,6 +945,21 @@
     })();
 
     (function() {
+      var heroBg = document.querySelector('.hero.hero-v2 .hero-bg');
+      if (!heroBg) return;
+      var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            document.body.classList.remove('hero-scrolled-past');
+          } else {
+            document.body.classList.add('hero-scrolled-past');
+          }
+        });
+      }, { threshold: 0, rootMargin: '0px' });
+      observer.observe(heroBg);
+    })();
+
+    (function() {
       var track = document.getElementById('doc-viewer-track');
       var prevBtn = document.getElementById('doc-viewer-prev');
       var nextBtn = document.getElementById('doc-viewer-next');

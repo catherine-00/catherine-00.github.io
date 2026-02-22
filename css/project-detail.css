@@ -1377,7 +1377,7 @@ body.project-detail.standalone .project-category-nav {
   align-items: center;
   box-sizing: border-box;
 }
-/* 나의 역할 목차 - main 오른쪽 끝에 딱 붙어 고정 */
+/* 나의 역할 목차 - main 오른쪽 끝에 딱 붙어 고정, hero가 스크롤로 사라진 뒤에만 표시 */
 .project-detail .section-role .role-toc {
   position: fixed;
   top: 100px;
@@ -1385,6 +1385,13 @@ body.project-detail.standalone .project-category-nav {
   width: 200px;
   padding: 1rem 0;
   z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+body.project-detail.standalone.hero-scrolled-past .section-role .role-toc {
+  opacity: 1;
+  pointer-events: auto;
 }
 /* 목차 공간 확보로 콘텐츠가 목차에 가리지 않음 */
 .project-detail .section-role {
