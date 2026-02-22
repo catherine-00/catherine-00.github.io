@@ -841,6 +841,7 @@ body.project-detail.standalone .project-category-nav {
   font-size: 0.8125rem;
   line-height: 1.4;
   color: rgba(203, 213, 225, 1);
+  text-align: left;
 }
 .project-detail .overview-problem-box .overview-list li:last-child {
   margin-bottom: 0;
