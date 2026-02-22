@@ -209,7 +209,7 @@ body.project-detail.standalone .hero {
   border-radius: var(--radius-md);
 }
 .project-detail .hero-info-label { display: block; font-size: 0.8rem; color: rgba(255, 255, 255, 0.85); }
-.project-detail .hero-info-value { display: block; font-size: 1rem; font-weight: 600; color: #fff; }
+.project-detail .hero-info-value { display: block; font-size: 13px; font-weight: 600; color: #fff; }
 .project-detail .hero-info-box-highlight {
   background: linear-gradient(135deg, rgba(14, 165, 233, 0.35) 0%, rgba(34, 211, 238, 0.25) 100%);
   border-color: rgba(34, 211, 238, 0.4);
