@@ -1353,25 +1353,81 @@ body.project-detail.standalone .project-category-nav {
   .project-detail .structure-box { padding: 1.5rem; padding-top: 40px; padding-bottom: 20px; }
 }
 
-/* 나의 역할 - position 1090×515, left=120 중앙 배치 */
+/* 나의 역할 - 콘텐츠가 section 너비에 꽉 차고, 목차는 main 오른쪽에 고정(레이아웃 영향 없음) */
 .project-detail .section-architecture.section-role {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 1090px;
+  display: block;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   min-height: 515px;
-  padding: 0 24px;
+  padding: 0 24px 0;
   box-sizing: border-box;
 }
-.project-detail .section-role .role-inner { opacity: 1; transform: none; }
-.project-detail .section-role .role-inner > div {
+.project-detail .section-role .role-inner {
+  opacity: 1;
+  transform: none;
+  display: block;
+}
+.project-detail .section-role .role-inner > .role-content {
+  width: 100%;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
+}
+/* 나의 역할 목차 - main 오른쪽 끝에 딱 붙어 고정 */
+.project-detail .section-role .role-toc {
+  position: fixed;
+  top: 100px;
+  right: 0;
+  width: 200px;
+  padding: 1rem 0;
+  z-index: 10;
+}
+/* 목차 공간 확보로 콘텐츠가 목차에 가리지 않음 */
+.project-detail .section-role {
+  padding-right: 224px;
+  box-sizing: border-box;
+}
+.project-detail .section-role .role-toc-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  margin-bottom: 0.75rem;
+}
+.project-detail .section-role .role-toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.project-detail .section-role .role-toc-list li {
+  margin-bottom: 0.5rem;
+}
+.project-detail .section-role .role-toc-list a {
+  display: block;
+  font-size: 0.875rem;
+  color: #cbd5e1;
+  text-decoration: none;
+  padding: 0.25rem 0;
+  border-left: 2px solid transparent;
+  padding-left: 0.5rem;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.project-detail .section-role .role-toc-list a:hover {
+  color: #fff;
+  border-left-color: #60a5fa;
+}
+.project-detail .section-role .role-toc-list a:focus-visible {
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+#role-flow,
+#role-detail {
+  scroll-margin-top: 100px;
 }
 .project-detail .section-role .role-title {
   font-size: 2.25rem;
